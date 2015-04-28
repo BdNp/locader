@@ -1,0 +1,108 @@
+/* Locader.com 
+ * Bootstrap Style Overrides 
+ * v 0.1
+ * Author: Brad Napoliello - 3/16/2015
+ */
+
+.checkbox { 
+  margin: 0;
+  > label {
+    padding-left: 0;
+  }
+}
+
+.modal-open .modal {
+  // background-color: rgba(0,0,0,0.5);
+  .modal-dialog: { margin-top: 20%; }
+}
+
+.modal.in .modal-dialog {
+  &.modal-centered { @include transform( translate(0, 90%) ); }
+}
+.modal-backdrop.in {
+  opacity: 0.25;
+}
+
+.modal-dialog .modal-content {
+  text-align:center;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 1em 0;
+}
+
+.modal-header {
+  padding: 3em 0 2em;
+  border-bottom: 0;
+}
+
+.modal-lg {
+  width:102%;
+  .modal-content {
+    border-radius:0;
+  }
+}
+
+.modal-sm {
+  width:40%;
+  .modal-content {
+    padding: 1em;
+  }
+}
+
+.nav>li>a:focus {
+  background-color: transparent;
+}
+a:focus {
+  color: $gray1;
+}
+
+[class*="col"] {
+  &.last {
+    padding-right: 0;
+    text-align: right;
+  }
+  &.first {
+    padding-left: 0;
+    text-align: left;
+  }
+}
+
+#cart {
+  
+  .panel {
+    border-radius: 0;
+    border: 0;
+
+    box-shadow: none;
+    -webkit-box-shadow: none;
+  }
+  .panel-default>.panel-heading {
+    background-color: transparent;
+    color: $gray1;
+  }
+  
+}
+
+// Angular UI accordion Overrides
+.panel-group .panel {
+  border: 1px solid $gray1;
+  border-width: 1px 0 0 0;
+  border-radius: 0;
+  background-color: transparent;
+  font-weight: bold;
+}
+
+.panel-default>.panel-heading {
+  overflow: auto;
+  padding: 0.5em 0;
+  background-color: transparent;
+}
+
+
+.panel-default>.panel-heading input[type=checkbox] + label.check {
+  height: 18px;
+}
+
+.panel-group .panel+.panel {
+  margin-top: 0;
+  border-width: 1px 0 1px 0;
+}

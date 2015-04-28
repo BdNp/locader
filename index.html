@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="css/screen.css" />
+
+        <script src="js/vendor/jquery-1.10.2.min.js"></script>
+        <!-- // <script src="js/main.js"></script> -->
+
+        <script type="text/javascript" src="app/angular.min.js"></script>
+        <script type="text/javascript" src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.1.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+
+        <script src="app/app.js"></script>
+</head>
+
+<body ng-init="" ng-controller="MainController">
+
+    <div ng-if="user == -1 && firstTime">
+        <div getting-started ng-controller="gettingStartedController"></div>
+    </div>
+
+    <header id="globalHeader" class="nav" ng-show="user != -1">
+      <div class="container">
+        
+        <div class="row">
+          <p class="pull-right small">     
+            <a>support@locader.com</a> | logged in: 
+                <a class="orange">{{username || 'bnapoliello'}}  </a>
+            </p>
+        </div>
+
+        <div class="row">
+          <div id="logo" class="col-sm-3"><span class="locader-logo small"></span></div>
+          <div class="col-sm-9">
+
+            <!-- {{globalNav}} -->
+            <ul id="globalNav" class="nav nav-pills" ng-controller="navController">
+              <li><a class="top-menu-item" ng-class="{ 'active': isActive(['/new-customers', '/my-customers'])}" href="#/new-customers">Customers</a>
+                <ul class="nav nav-pills subnav">
+                  <li><a ng-class="{ 'active': isActive(['/my-customers'])}" href="#/my-customers">My Customers</a></li>
+                  <li><a ng-class="{ 'active': isActive(['/new-customers'])}" href="#/new-customers">New Customers</a></li>
+                </ul>
+              </li>
+              <li><a class="top-menu-item" ng-class="{ 'active': isActive(['/my-campaigns', '/new-campaign'])}" href="#/my-campaigns">Campaigns</a>
+                <ul class="nav nav-pills subnav">
+                  <li><a ng-class="{ 'active': isActive(['/my-campaigns'])}" href="#/my-campaigns">My Campaigns</a></li>
+                  <li><a ng-class="{ 'active': isActive(['/new-campaign'])}" href="#/new-campaign">Create Campaign</a></li>
+                </ul>
+              </li>
+              <li><a class="top-menu-item" ng-class="{ 'active': isActive(['/place-media', '/media-marketplace'])}" href="#/place-media">Media Market</a>
+                  <ul class="nav nav-pills subnav">
+                    <li><a ng-class="{ 'active': isActive(['/place-media'])}" href="#/place-media">Place Media</a></li>
+                    <li><a ng-class="{ 'active': isActive(['/media-marketplace'])}" href="#/media-marketplace">Media Marketplace</a></li>
+                  </ul>
+              </li>
+              <li class="pull-right">
+                  <a class="top-menu-item" ng-class="{ 'active': isActive(['/settings'])}" href="#/settings">
+                    <span class="glyphicon glyphicon-cog"></span> Settings
+                  </a>
+              </li>
+            </ul>
+
+
+          </div>
+        </div>
+
+      </div>
+
+    </header> <!-- #globalHeader -->
+
+
+    <h1 id="pageHeader" class="orange" ng-show="user != -1" >
+      <div class="container">
+        {{pageTitle}}<br/>
+        <small>{{pageSubtitle}}</small></h1>
+      </div>
+    </h1> <!-- #pageHeader -->
+
+    
+    <div ng-view id="pageContent" class="container" ng-show="user != -1"></div>
+
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,141 @@
+// Global & Page Headers
+#globalHeader {
+  padding: 1em 0 2em;
+  // background: $white;
+  // @include background(linear-gradient(red 90%, black));
+  background: linear-gradient(#ffffff 90%, transparent);
+  position: fixed;
+  top:0;
+  width: 100%;
+  z-index: 2;
+}
+#pageHeader {
+  position: relative;
+
+  margin: 3em 0 1.3077em;
+  padding: 0.307em 0 0.5em;
+  
+  background: $gray4;
+  }
+
+#page-content {
+  padding-bottom: 10em;
+}
+
+// Cart
+#cart {
+  position: relative;
+
+  li { 
+    margin-bottom: 1.5em;
+    line-height: 1.25em;
+  }
+
+  &.affix {
+    top: 0;
+    z-index:1;
+    right: 9%;
+    width: 24%;
+  }
+
+  .stuck {
+      position: fixed;
+      top: 111px;
+      width: 255px;
+      z-index: 2;
+
+  }
+
+
+}
+
+
+// Clusters
+
+.clusters li {
+  margin: 0;
+  padding: 1.25em 0;
+  border-width: 0px 0 1px 0;
+  border-style: solid;
+  border-color: $gray4;
+  &:first-child {
+    margin-top: 1em;
+    border-top-width:1px;
+  }
+  
+  .cluster-copy {
+    padding-top: 1em;
+  }
+}
+
+#mediaTab + .clusters li:first-child {
+  border-top: 0;
+}
+
+// Form page margins
+.btn-group {
+  width: 100%
+}
+
+// Upload File
+.well.upload {
+  background-color: $gray4;
+  border: 2px dotted $gray2;
+  min-height: 20em;
+}
+
+
+// Tabs 
+#mediaTab {
+  height: 5em;
+  > div {
+    height: 100%;
+    width: 33.33333%;
+    padding: 1em;
+    border-width: 0 1px 1px 0;
+    border-style: solid;
+    border-color: $gray2;
+    border-radius: 0;
+
+    color: $gray1; 
+    text-align: left;
+   
+    &:last-child {
+      border-right: none;
+    }
+
+    &.active {
+      background-color:$gray4;
+      border: 0;
+      border-bottom: 1px solid $gray3;
+      border-right: 1px solid $gray3;
+      p { color: $orange; }
+      &:hover, &:focus {
+        background-color:$gray4;
+        border: 0;
+        border-bottom: 1px solid $gray3;
+        border-right: 1px solid $gray3;
+        p { color: $orange; }
+      }
+    }
+  }
+
+  li.disabled>a {
+    color: $gray3;
+  }
+  
+  
+}
+
+
+
+
+// Style Guide page
+#colors div {
+  display: inline-block;
+  font-size: 1em;
+  text-align: center;
+  font-weight: bold;
+  width: 11em;
+  line-height: 11em;
+}

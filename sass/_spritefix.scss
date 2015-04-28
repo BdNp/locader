@@ -1,0 +1,90 @@
+/* Spritemap fixes
+ * Modifications to spritemap styles
+ * v 0.1
+ * Author: Brad Napoliello - 3/16/2015
+ */
+
+
+[class*="locader"] {
+	display: inline-block;
+}
+
+.locader-logo {
+	width: 408px;
+	height: 89px;
+	&.small {
+		background-position: 0 -100px;
+		background-size: 100%;
+		width: 204px;
+		height: 45px;
+	}
+}
+
+.locader-arrowR {
+  width: 10px;
+  height: 18px;
+}
+
+.locader-arrowD {
+  width: 18px;
+  height: 10px;
+  margin-top:8px;
+  &.hovered {
+  	@include locader-sprite(arrowD_hover);
+  }
+}
+
+.locader-star {
+	width: 13px;
+	height: 15px;
+	&:hover { height: 15px; }
+}
+
+[class*="checkSm"] {
+	width: 19px;
+	height: 18px;
+}
+
+[class*="checkLg"] {
+	width: 28px;
+	height: 25px;
+}
+
+//Inputs
+input[type="checkbox"], input[type="radio"] {
+	// display: none;
+
+	&+ span {
+		@include locader-sprite(checkSm_off);
+		display: block;
+		height: 16px;
+		padding-left: 31px;
+	}
+
+	&:checked + span {
+		background-position: 0px -155px;
+		&:hover {
+			background-position: 0px -171px;
+		}
+	}
+
+	&.big {
+		& + span {
+			background-position: 0 -70px;
+			height: 23px;
+			padding-left: 31px;
+		}
+
+		&:checked + span {
+			background-position: 0px -93px;
+			&:hover {
+				background-position: 0px -116px;
+			}
+		}
+
+	}
+}
+
+select {
+	@include locader-sprite(arrowDSm);
+}

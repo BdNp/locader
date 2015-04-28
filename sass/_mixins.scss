@@ -1,0 +1,24 @@
+/* Locader.com 
+ * Bootstrap Style Overrides 
+ * v 0.1
+ * Author: Brad Napoliello - 3/16/2015
+ */
+
+/* Colors */
+$orange:  #F04923;
+$dkOrange:  #C43D1F;
+$gray1:   #707173;
+$gray2:   #A4A7A9;
+$gray3:   #C2C5C8;
+$gray4:   #E6EDF0;
+$white:   #FFFFFF;
+$black:   #000000;
+
+
+// Compass Mixins
+@mixin transform($transform, $only3d: false) {
+  $transform-support-threshold: 0.1;
+  $capability: if($only3d, transforms3d, transforms2d);
+  @include prefixed-properties($capability, $transform-support-threshold, (transform: $transform));
+}
+

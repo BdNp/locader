@@ -1,0 +1,516 @@
+/* Locader.com Base Style
+ * v 0.1
+ * Author: Brad Napoliello - 3/16/2015
+ */
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
+body {
+  font-family: Open Sans;
+  font-size: 16px;
+  color: $gray1;
+}
+
+.orange { 
+  color: $orange;
+  &.bgColor { background-color: $orange; color: $white; }
+}
+.dkOrange { 
+  color: $dkOrange;
+  &.bgColor { background-color: $dkOrange; color: $white; }
+}
+.white { 
+  color: $white;
+  &.bgColor { background-color: $white; color: $black; }
+}
+.gray1 { 
+  color: $gray1;
+  &.bgColor { background-color: $gray1; color: $white; }
+}
+.gray2 { 
+  color: $gray2;
+  &.bgColor { background-color: $gray2; color: $black; }
+}
+.gray3 { 
+  color: $gray3;
+  &.bgColor { background-color: $gray3; color: $black; }
+}
+.gray4 { 
+  color: $gray4;
+  &.bgColor { background-color: $gray4; color: $black; }
+}
+
+/*headers*/
+h1, h2, h3, h4, h5, p { margin-top: 0}
+h1, .h1 { /*52 / ??*/
+  font-size: 3.25em; 
+  line-height: 0.7885em;
+  small {
+    font-size: 0.4615em;
+  }
+}
+h2, .h2 { /*34 / 36*/
+  font-size: 2.125em;
+  line-height: 1.0588em;
+  margin-bottom: 0.5em;
+}
+h3, .h3 { /*22 / 26*/
+  font-size: 1.375em;
+  line-height: 1.1818em;  
+  margin-bottom: 0.5em;
+}
+h4, .h4 { /*18 / 22*/
+  font-size: 1.125em;
+  line-height: 1.375em;  
+  small {
+    font-size: 0.8889em;
+    margin-bottom: 0;
+  }
+}
+h5, .h5 {
+  font-size: 0.875em;
+  line-height: 1em;
+  margin-bottom: 0.5em;
+  font-weight: bold;
+}
+
+p {
+  margin-bottom: 0.5em;
+  line-height: 1.5em;
+}
+
+b, strong, .bold {
+  font-weight: bold;
+}
+
+/*Horizontal Rules*/
+hr { 
+  border-color: $gray4;
+  &.orange { border-color: $orange; }
+  &.narrow { width: 25%; }
+}
+/*Vertical Rules*/
+.vr {
+  border-right: 1px solid $gray4;
+}
+
+/*Lists*/
+li {
+  margin-bottom: 1em;
+}
+
+li ul {
+  margin-left:0.5em;
+}
+
+.steps {
+  width:100%;
+  margin:0;
+  > div, > li {
+    height:4em;
+    padding-left: 0;
+    border-bottom: 3px solid $gray4;
+    &.complete { border-bottom-color: $orange }
+    &.in-progress { border-bottom-color: $orange }
+  }
+}
+
+/*Links*/
+a { 
+  color: $gray1;
+  &.text-link {
+    border-bottom:1px solid $black;
+    font-weight: bold; 
+  }
+  &.cta { 
+    border-bottom:1px solid $orange; 
+  }
+  &:hover, &.cta:hover, &.text-link:hover {
+    text-decoration: none;
+    color: $gray3;
+  }
+}
+
+label.cta {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.nav-back {
+  cursor: pointer;
+  &:hover {
+    color: $orange;
+  }
+}
+
+// Navigation
+.nav-pills {
+  li.active a {
+    background: $orange;
+    &:hover {
+      background-color: $dkOrange;
+    }
+  }
+  a.active {
+    color: $orange;
+  }
+  li.disabled>a, li.disabled>a:hover {
+    color: $gray3;
+  }
+} 
+.nav-tabs {
+  
+  li>a { 
+    color: $gray1; 
+  }
+  
+  &.nav-justified {
+      li > a {
+        border-bottom: 1px solid $gray3;
+        border-right: 1px solid $gray3;
+        border-radius: 0;
+        text-align:left;
+      }
+    
+      li:last-child a {
+        border-right: 0;
+      }
+
+      > .active > a {
+      background-color:$gray4;
+      border: 0;
+      border-bottom: 1px solid $gray3;
+      border-right: 1px solid $gray3;
+      p { color: $orange; }
+      &:hover, &:focus {
+        background-color:$gray4;
+        border: 0;
+        border-bottom: 1px solid $gray3;
+        border-right: 1px solid $gray3;
+        p { color: $orange; }
+      }
+    }
+
+  }
+  
+  
+  li.disabled>a {
+    color: $gray3;
+  }
+  
+  
+}
+
+#globalNav {
+    border-bottom: 1px solid $gray3;
+    height: 3em;
+
+  &.nav-pills {
+    >li+li { margin: 0; }
+    a:hover {
+      background-color: transparent;
+    }
+  }
+
+  > li {
+    position: relative;
+    .active + ul.subnav {
+      display: block;
+    }
+    ul.subnav {
+      display: none;
+      position: absolute;
+      width: 225%;
+      height: 2.0625em;
+      border-bottom: 1px solid $gray4;
+      >li {
+        // border-bottom:1px solid $gray4;
+        background-color: transparent;
+        font-size: 0.75em;
+      }
+    
+    }
+    
+  }
+    
+  > li > a {
+    height: 3em;
+    @include locader-sprite(navPointer);
+    background-position: 20% -304px;  
+    margin-left: -4px;
+    &.active {
+      background-position: 0 -304px;  
+    }
+
+  }
+  
+  a:hover {
+    // background-color: transparent;
+  }
+
+
+}
+
+
+/*Buttons */
+a.button { display: inline-block }
+
+button, a.button {
+  border: 1px solid $gray2;
+  border-radius: 0.1667em;
+  font-size: 1.125em;
+  line-height: 2.9444em;
+  padding: 0 1.5em;
+  text-decoration: none;
+  &.btnwide {
+    /* min-width:12em; */
+    width: 100%;
+  }
+
+  color: $gray2;
+  background-color: $gray4;
+  &:hover { background-color: $gray3; color: $gray1; }
+  
+  &.cta {
+    border-color: $orange;
+    color: $white;
+    background-color: $orange;
+    &:hover { background-color: $dkOrange     }
+  }
+  
+  .btn-group & {
+    border: 1px solid $gray2;
+    &.active {
+      border-color: $orange;
+      color: $orange;
+    }
+  }
+}
+
+.btn-switch {
+  background: $gray4;
+  border-radius: 0.1667em;
+  button {
+    border-color: $gray4;
+    &.active {
+      border-color: $orange;
+    }
+  }
+}
+
+/*Inputs*/
+
+.form-group.row > label {
+  h3 { margin: 0.25em 0 }  
+  h4 { margin: 0.33em 0 } 
+  &.text-right {
+    margin-top: 0.5em;
+  } 
+}
+
+input[type=checkbox], input[type=radio] {
+  display: none;
+  &.big {
+    /*width:3em;
+    height:3em;*/
+  }
+  + label.check {
+    @include locader-sprite(checkSm_off);
+    min-height: 18px;
+    display: inline-block;
+    padding-left: 1.5em; 
+    text-align: left;
+  }
+  + label.check.check-large {
+    @include locader-sprite(checkLg_off);
+    width: 28px;
+    min-height: 25px;
+    display: inline-block;
+  }
+  &:checked {
+    + label.check {
+      @include locader-sprite(checkSm_on);
+    }
+    + label.check.check-large {
+      @include locader-sprite(checkLg_on);
+    }
+  }
+}
+
+.select {
+  position: relative;
+
+  overflow: hidden;
+  width: 100%;
+  height: 2.5714em;
+  border: 1px solid $gray3;
+  border-radius: 3px;
+
+  color: $gray1;
+
+  font-size: 1.3125em;
+  
+  &:hover {
+    border-color: $gray1;
+  }
+
+  &:focus, &:active {
+    outline: none;
+  }
+
+  & > select {
+    padding: 0.25em 1em;
+    margin: 0.5em 0 0 0.25em;
+    width: 110%;
+    background: none;
+    border: 0;
+  }
+  
+  .locader-arrowD {
+    position:absolute;
+    top: 25%;
+    right: 4%;
+  }
+
+}
+
+.accordion-arrow {
+  width: 1em;
+  height: 1em;
+  display: block;
+  background-color: $orange;
+}
+
+.accordion {
+
+  > li {
+    margin: 0;
+    padding: 0.5em 0;
+    border-top: 1px solid $gray3;
+    &:last-child {
+      border-bottom: 1px solid $gray3;
+      margin-bottom: 2em;
+    }
+  }
+
+  ul {
+    padding-top: 0.75em;
+  }
+
+  .accordion-item label.check {
+    font-weight: bold;
+  }
+  
+}
+
+// Step parsing
+.parse {
+  .step {
+    display: none;    
+    position: relative;
+    input + label.error {
+      position: absolute;
+      bottom: 1em;
+      right: 1em;
+    }
+  }
+}
+
+// Images and Thumbnails
+.thumbnail {
+  max-width: 160px;
+  max-height: 160px;
+  width: 20vw;   
+  height: 20vw;
+  &.big { width: 240px;   height: 240px; }
+  &.small { width: 80px;   height: 80px; }
+
+  > img { 
+    width: 100%;  
+    height: 100%; 
+    object-fit: cover; // CSS-3 only
+  }
+
+  &.no-border {
+    border: 0;
+    padding: 0;
+  }
+  &.circle {
+    overflow: hidden;
+    > img {
+      border-radius: 50%;
+    }
+  }
+}
+
+// Line Breaks
+.br2 { line-height: 2em }
+.br3 { line-height: 4em }
+.br4 { line-height: 5.25em }
+.br5 { line-height: 6.25em }
+.br6 { line-height: 9em }
+
+.form-group.row {
+  margin-bottom: 8.75em;
+
+  &.br1 { margin-bottom: 1em }
+  &.br2 { margin-bottom: 2em }
+  &.br3 { margin-bottom: 4em }
+  &.br4 { margin-bottom: 5.25em }
+  &.br5 { margin-bottom: 6.25em }
+
+}
+fieldset.form-group.row, fieldset .form-group.row {
+  margin-bottom: 1em;
+}
+
+.modal .form-group.row {
+  margin-bottom: 1em;
+}
+
+
+
+// Column content placement
+[class*="placement"] {
+  position: absolute;
+  [class*="col"] > {
+    position: relative;
+  }
+}
+
+.placement-bottom-right {
+  bottom: 0; right: 0;
+}
+.placement-bottom-left {
+  bottom: 0; left: 0;
+}
+
+
+.wallpaper {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  position: fixed;
+  top:0;
+  left:0;
+  > img {
+    width: 104%;
+    position: absolute;
+    left: -2%;
+    top: -2%;
+    object-fit: contain;
+    filter: blur(5px); /* Someday, sigh ... */ 
+    -webkit-filter: blur(5px); /* Prefixed CSS3 blur filters */
+    -moz-filter: blur(5px); 
+    -o-filter: blur(5px); 
+    -ms-filter: blur(5px); 
+    filter: url(#blur); /* Firefox needs SVG */
+  filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='5'); /* IE lte 9 */  
+  }
+}
+@media (max-width: 1200px) {
+  .wallpaper > img {
+    height: 104%;
+    width: auto;
+  }
+  
+}
