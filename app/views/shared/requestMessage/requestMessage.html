@@ -1,0 +1,35 @@
+<header><h2>Send Request</h2></header>
+<section class="row form-group">
+	<div class="col-xs-12 text-left">
+		
+		<ul class="list-unstyled" ng-if="vendorState != 'invite'">
+			<label>To Vendors:</label>
+			<li ng-repeat="vendor in selectedVendors">{{vendor.Name}}</li>
+		</ul>
+	</div>
+</section>
+
+<form class="row">
+
+<label ng-if="vendorState == 'invite'" class="col-xs-10 form-group text-left" for="subject">To</label>
+<input ng-if="vendorState == 'invite'" id="subject" name="subject" type="text" class="form-control form-group" placeholder="Email" ng-model="message.Subject" />
+
+
+<label class="col-xs-10 form-group text-left" for="subject">Subject</label>
+<input id="subject" name="subject" type="text" class="form-control form-group" placeholder="Subject Request" ng-model="message.Subject" />
+
+<label class="col-xs-10 form-group text-left" for="proposalMessage">Message</label>
+<!-- <textarea id="proposalMessage" name="proposalMessage" ng-model="message.Copy" class="form-control form-group" rows="8"
+	placeholder="{{message.placeholders | filter: { message.placeholders: message.state} }}" > -->
+<textarea id="proposalMessage" name="proposalMessage" class="form-control form-group" rows="8" ng-repeat="msg in message | filter: vendorState">{{msg.copy}}</textarea>
+
+<section class="row form-group">
+	<div class="col-xs-12 col-sm-3 col-sm-offset-6">
+		<button class="btnwide cta">Send</button>
+	</div>
+	<div class="col-xs-12 col-sm-3">
+		<button class="btnwide" data-dismiss="modal">Cancel</button>
+	</div>
+</section>
+
+</form>

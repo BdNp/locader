@@ -1,0 +1,78 @@
+<article id="page-content" class="col-sm-9"> 
+  <div id="newCustomersView"> 
+    <br class="br2"/>
+    <section class="row" ng-show="step == 1">
+      <div class="col-sm-6 text-center">
+        <h2>Know your target demographics?</h2><br class="br1"/>
+        <button data-toggle="modal" data-target="#wizardModal" class="cta">Try our Cluster Wizard</button>
+      </div>
+      <div class="col-sm-6 text-center">
+        <h2>Need smart recommendations?</h2><br class="br1"/>
+        <button class="cta" ng-click="setStep(2.5, 1)">View our Recommendations</button>
+      </div>
+    </section>
+
+    <section class="form-group row" ng-show="step == 2">
+      <h2>Cluster Wizard Results</h2>
+      <h3>We identified these clusters based on the demographics <Br/>you provided.</h3>
+      <br class="br3" />
+      <label data-toggle="modal" data-target="#wizardModal" class="bold cta">Use Wizard Again</label>
+
+      <ul id="wizardResults" class="clusters list-unstyled">
+        <div show-cluster></div>
+      </ul>
+    </section>
+    <section class="form-group row" ng-show="step == 2.5 || step == 2">
+      <h3 class="col-sm-8">
+        <span ng-show="step == 2">We also recommend the following clusters for you</span>
+        <span ng-show="step == 2.5">Recommended Clusters</span>
+      </h3>
+      <div class="col-sm-4 text-right">
+        <label class="bold">
+         Select All Clusters
+            <input type="checkbox" class="big" id="selectAllClusters"
+                   ng-model="allClusters"
+                   ng-change="checkAll('selectedClusters', allClusters)" />
+           <label for="selectAllClusters" class="check check-large" ></label>
+         </label>
+     </div>
+     <div class="row"></div>
+      <ul id="recommendationResults" class="clusters list-unstyled" ng-show="step == 2.5 || step == 2">
+        <div show-cluster></div>
+      </ul>
+
+      
+
+    </section>
+
+    <section class="form-group row" ng-show="step == 3">
+      
+      <h2>Choose usage rates that work for you.</h2>
+      <br/>
+      <ul class="clusters list-unstyled">
+        <div show-usage></div>
+      </ul>
+
+    </section>
+
+    <!-- <section show-paygate> -->
+    <section show-paygate ng-show="step == 4">
+    </section>
+
+
+
+  </div><br class="br6" /><br class="br6" />
+</article>
+
+<aside id="cart" class="col-sm-3" show-cart></aside>
+
+
+<div id="wizardModal" tabindex="-1" class="modal fade">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div cluster-wizard></div>
+      </div>
+    </div>
+  </div>
+</div>

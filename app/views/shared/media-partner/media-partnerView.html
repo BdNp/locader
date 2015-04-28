@@ -1,0 +1,29 @@
+<li class="row" ng-repeat="vendor in mediaVendors">
+  <div class="col-sm-2 col-md-2">
+    <div class="thumbnail circle no-border"><img src="https://cdn.tutsplus.com/photo/uploads/legacy/270_skyline/sandiegoskyline2.jpg"/></div>
+  </div>
+  <div class="col-sm-8 col-md-6">
+    <p><small class="bold">Marketing Agency | Status: Verified | Rating: {{vendor.Ratings}}</small></p>
+    <h2>{{vendor.VendorName}}</h2>
+    <p> {{vendor.description}}</p>
+    <div class="row">
+      <a class="col-sm-3">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        <strong class="text-link">Wishlist</strong>
+      </a>
+      <a class="col-sm-2">@ 
+        <strong class="text-link">Email</strong>
+      </a>
+      <a class="col-sm-6">
+        <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
+        <strong class="text-link">Learn More</strong>
+      </a>
+    </div>
+  </div>
+  <div class="col-sm-1 checkbox">
+    <label>
+      <input type="checkbox" class="big"/>
+      <div class="locader-checkLg_off check"></div>
+    </label>
+  </div>
+</li>

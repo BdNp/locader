@@ -1,0 +1,36 @@
+<div class="well upload" file-dropzone file="ctrlBoundFile" ng-show="step < 5.5" >
+  <div class="select-file">
+    <br class="br3" />
+    <h2>Drop Files here<br/>or</h2>
+    <button class="cta" ng-click="setStep(5.5,2)">Browse & Select</button>
+    <!-- <h2>File Upload disabled</h2> -->
+    <!-- <div class="row">
+      <button class="cta col-sm-4 col-sm-offset-1" ng-click="setStep(5.5,2)">Just Continue</button>
+      <div class="col-sm-2"></div>
+      <button class="cta col-sm-4" ng-click="setStep(5.1,1)">Show Error</button>
+      <br class="br3" />
+    </div>  -->
+  </div>
+  <div class="file-error" ng-show="step == 5.1">{{upload}}
+    <h2>Could not read file!<br/><span class="glyphicon glyphicon-remove-sign"></span></h2>
+    <h4>Please check that the format is correct and try again</h4>
+  </div>
+</div>
+
+<div class="file-complete" ng-show="step == 5.5">
+  <br class="br2" />
+    <div>
+      <h4>MY_LIST.XLS</h4>
+      <h2>Upload is Complete!<h2/>
+      <h4 class="h1"><span class="glyphicon glyphicon-ok-sign"></span></h4>
+    </div>
+  <div class="form-group row br2">
+    <h3>What would you like to name this list?</h3>
+    <filedset class=" col-sm-8 col-sm-offset-2">
+      <input type="text" class="form-control" ng-model="newList" />
+    </filedset>
+  </div>
+  <div class="form-group row">
+    <button class="cta next col-sm-4 col-sm-offset-4" ng-click="setStep(6,3)" ng-show="newList">Continue</button>
+  </div>
+</div>

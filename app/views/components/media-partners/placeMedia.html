@@ -1,0 +1,60 @@
+
+<article id="page-content" class="col-sm-12">
+  <nav class="row">
+    <div class="col-sm-4">
+        <p>Select Campaign</p>
+      <div class="select">
+        <select ng-model="selectedCampaign" ng-change="getCamp()">
+          <option>Select a Campaign</option>
+          <option ng-repeat="campaign in Campaigns" ng-model="campaign">{{campaign.Name}}</option>
+        </select>
+        <div class="locader-arrowD"></div>
+      </div>
+    </div>
+    <div class="col-sm-8 last">
+      <div class="col-xs-4">
+        <p>&nbsp;</p>
+        <button data-toggle="modal" data-target="#requestModal" ng-click="vendorState = 'invite'" class="btn-block">Invite Vendor</button>
+      </div>
+      <div class="col-xs-4">
+        <p>&nbsp;</p>
+        <button data-toggle="modal" data-target="#requestModal" ng-click="vendorState = 'getInfo'" class="btn-block">Request More Info</button>
+      </div>
+      <div class="col-xs-4">
+        <p>&nbsp;</p>
+        <button data-toggle="modal" data-target="#requestModal" ng-click="vendorState = 'proposal'" class="btn-block">Request Proposals</button>
+      </div>
+    </div>
+  </nav><br class="br4"/>
+
+  <div id="mediaTab" class="btn-group tabs">
+    <div class="btn" ng-model="marketplaceFilter.Services" btn-radio="'Direct Mail'" > 
+        <p><strong>Status: Not Started</strong></p>
+        <h2>Direct Mail</h2>
+    </div>
+    <div class="btn" ng-model="marketplaceFilter.Services" btn-radio="'Email'" >
+        <p><strong>Status: Not Started</strong></p>
+        <h2>Email</h2>
+    </div>
+    <div class="btn" ng-model="marketplaceFilter.Services" btn-radio="'Mobile Text'" > 
+        <p><strong>Status: Not Started</strong></p>
+        <h2>Mobile Text</h2>
+    </div>
+  </div>
+
+  <ul class="clusters list-unstyled">
+    <div show-vendors></div>
+  </ul>
+
+</article>
+
+<!-- Request Messages -->
+<div id="requestModal" tabindex="-1" class="modal fade">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-body row">
+        <div request-message ng-attr-get-message="{{getMessage}}" class="col-sm-4 col-sm-offset-4"></div>
+      </div>
+    </div>
+  </div>
+</div>

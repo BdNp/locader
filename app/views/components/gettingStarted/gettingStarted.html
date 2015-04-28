@@ -1,0 +1,282 @@
+ 
+<div class="wallpaper"><img src="http://www.smart421.com/wp-content/uploads/2012/12/orange-cloud-formation-wallpapers.jpg"/></div>
+<div class="modal-dialog modal-lg modal-centered">
+  <div class="modal-content">
+    <div class="modal-header text-center" ng-show="step <= 2">
+      <span class="locader-logo" ng-show="step < 2"></span>
+      <span class="locader-logo small" ng-show="step == 2"></span>
+    </div>
+    <!-- <div class="modal-header"><span class="locader-logo"></span></div> -->
+    <div class="modal-body">
+      <div class="row">
+        <!-- <div class="col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4"> -->
+
+<!-- <form id="gettingStarted" class="row" name="gettingStarted">  -->
+
+  <!-- Log In -->
+  <section ng-show="step == 1" class="col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">
+    <!-- <form id="login" class=""> -->
+      <div class="form-group">
+        <input type="email" placeholder="Email Address" required="required" class="form-control" ng-model="username"/>
+      </div>
+      <div class="form-group">
+        <input type="password" placeholder="Password" required="required" class="form-control"/>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <!-- <div> -->
+            <label class="col-sm-6 checkbox text-left">
+              <input  id="rememberMe" type="checkbox"/>
+              <label for="rememberMe" class="check text-left">Remember Me</label>
+            </label>
+          <!-- </div> -->
+          <div class="col-sm-6">
+            <p class="text-right"> <a>Forgot Password?</a></p>
+          </div>
+        </div>
+      </div>
+      <!-- <button class="btnwide cta" ng-click="setStep(2)">Log In</button> -->
+      <br class="br3" />
+      <div class="row">
+        <div class=" col-sm-8 col-sm-offset-2">
+          <button class="btnwide cta" ng-click="logIn(username)">Log In {{username}}</button>
+        </div>
+      </div>
+      <div class="row">
+        <br class="br2" />
+        <a class="cta">New to Locader? Sign up here</a>
+      </div>
+        <br class="br3" />
+    <!-- </form> -->
+  </section>
+
+  <!-- Back Link -->
+  <section ng-show="step >= 1113" class="col-sm-4 col-sm-offset-4 text-left form-group">
+    <span class="glyphicon glyphicon-chevron-left nav-back" ng-click="setStep((step - 1).toFixed(0), progressBar - 1 )">Back</span>
+  </section>
+  
+  <!-- Choose Locations-->
+  <section id="chooseLocations" class="row" ng-show="step == 2">
+    <div class="col-sm-4 col-sm-offset-4">
+    <h3 class="">What Location will you be working with during this session?</h3><br class="br2"/>
+    
+    <h3 class="orange text-left row">Locations</h3>
+    <accordion class="">
+
+      <accordion-group class="row" ng-repeat="location in campaignLocations" is-open="status.open">
+        <accordion-heading class="text-left">
+          <!-- <div show-checkbox obj="{ID:location.ID,label:location.Name,dropdown:'#location{{location.ID}}'}" class="accordion-item"></div show-checkbox> -->
+          <input type="checkbox" id="#location{{location.ID}}" ng-checked="status.open" 
+              ng-model="location.ID"
+              ng-click="checkAll('selectedClusters', 'selectedItems')" />
+
+          <label class="check col-sm-12" for="#location{{location.ID}}">{{location.Name}}
+            <span class="pull-right glyphicon" ng-class="{'glyphicon-chevron-right': !status.open, 'glyphicon-chevron-down': status.open}"></span>
+            <!-- <span ng-class="{'locader-arrowR': status.open; 'locader-arrowD': !status-open}"></span> -->
+          </label>
+        </accordion-heading>
+        <!-- <div id="location{{location.ID}}" class="collapse" ng-if="location.SubLocations.length != 0"> -->
+          
+          <ul class="list-unstyled">
+            <li ng-repeat="sublocation in location.SubLocations">
+              <!-- <div show-checkbox obj="{ID:sublocation.ID,label:sublocation.Name,selectAll:'yo'}"></div show-checkbox> -->
+                <fieldset class="checkbox row text-left">
+                  <label class="col-sm-11">
+                    <input id="{{sublocation.ID}}" ng-checked="location.ID" type="checkbox"/>
+                    <label for="{{sublocation.ID}}" class="check" >{{sublocation.Name}}</label>
+                  </label>
+                </fieldset>
+            </li>
+          </ul>
+
+        <!-- </div> -->
+      </accordion-group>
+
+    </accordion>
+    </div>
+    <div class="row">
+      <button class="cta next col-sm-2 col-sm-offset-5" ng-click="setStep(3)">Let's Go</button>
+    </div>
+  </section>
+
+
+  <!-- Welcome-->
+  <section id="welcome" class="row" ng-show="step == 3">
+    <div class="col-sm-6 col-sm-offset-3 text-center">
+      <br class="br2" />
+      <h2>Looks like it is your first time <br/>with us, so welcome!</h2>
+      <hr class="narrow orange"/>
+      <p>Here, at Locader, we are focused on helping you, the business<br/>owner, reach more customers and grow your business.</p>
+      <br class='br3'/>
+    
+      <div class="row form-group br3">
+        <div class="col-sm-4">
+          <h2><span class="glyphicon glyphicon-user gray2"></span></h2>
+          <p><b>Customers</b><br/>Using characteristics, we identify which customer types you should reach out to.</p>
+        </div>
+        <div class="col-sm-4">
+          <h2><span class="glyphicon glyphicon-briefcase gray2"></span></h2>
+          <p><b>Campaigns</b><br/>Send out fliers, place facebook ads, send promotional emails, all done seamlessly in a 3 step process.</p>
+        </div>
+        <div class="col-sm-4">
+          <h2><span class="glyphicon glyphicon-list gray2"></span></h2>
+          <p><b>Media</b><br/>Manage and choose media partners for your campaigns. Trusted partners already included.</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <button class="cta next col-sm-2 col-sm-offset-5" ng-click="setStep(4)">Next</button>
+    </div>
+  </section>
+
+
+  <!-- Get Customers    -->
+  <section id="getCustomers" class="form-group step row" ng-show="step == 4">
+    <div class="col-sm-6 col-sm-offset-3 text-center">
+      <h2>Let's Get Started</h2>
+      <hr class="narrow orange"/>
+      <h3 class="h4">
+        <p>It's time to get a better understanding of your customer base.<br/>Locader identifies your customer types (called 'clusters') based on the information you provide on your customer.</p>
+        <p>To help you get started, you can do one of two things</p>
+      </h3><br class="br2" />
+
+      <div class="row">
+        <div class="col-xs-6 vr">
+          <br class="br2" />
+          <h3 class="h2 orange">01</h3>
+          <p class="h4">Use your own list to give an accurate picture of your customers types.</p>
+          <br class="br2" />
+          <button class="cta" ng-click="setStep(5)">Upload Customer list</button>
+          <br class="br2" />
+        </div>
+        <div class="col-xs-6">
+          <br class="br2" />
+          <h3 class="h2 orange">02</h3>
+          <p class="h4">Input your customer demographics to see who are your customer types</p>
+          <br class="br2" />
+          <button class="cta" ng-click="setStep(4.5)">Cluster Wizard</button>
+          <br class="br2" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section ng-show="step == 4.5">
+    <div cluster-wizard></div>
+  </section>
+
+  <!-- Upload Customer List    -->
+  <section id="uploadList" class="form-group row br1" ng-show="step >= 5">
+    <div class="col-sm-4 col-sm-offset-4 text-center">
+      <h2>Upload Customer List</h2>
+      <ul class="row steps list-unstyled">
+        <li class="col-sm-4" ng-class="{1 : 'in-progress', 2 : 'in-progress', 3: 'in-progress'}[progressBar]">
+          <h4 class="col-sm-4">Select Files</h4>
+        </li>
+        <li class="col-sm-4" ng-class="{2 : 'in-progress', 3 : 'in-progress'}[progressBar]">
+          <h4 class="col-sm-4">Name List</h4>
+        </li>
+        <li class="col-sm-4" ng-class="{3 : 'in-progress'}[progressBar]">
+          <h4 class="col-sm-4">Match Headers</h4>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="uploadList" class=" row" ng-show="step >= 5 && step < 6">
+    <div class="col-sm-6 col-sm-offset-3 text-center">
+      <div upload-wizard></div>
+    </div>
+  </section>
+
+
+  <!-- Match List Headers-->
+  <section id="matchHeaders" class="form-group step row" ng-show="step == 6">
+    <fieldset class="col-sm-6 col-sm-offset-3 text-center">
+        <div class="form-group row">
+          <div class="col-sm-3 text-right"><b>Standard Headers</b></div>
+          <div class="col-sm-7 text-left"><b>File Headers</b></div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-3 text-right">First Name</label>
+          <div class="col-sm-7">
+            <input type="text" name="First Name" class="form-control"/>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-3 text-right">Last Name</label>
+          <div class="col-sm-7">
+            <input type="text" name="Last Name" class="form-control"/>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-3 text-right">Address 1</label>
+          <div class="col-sm-7">
+            <input type="text" name="Address 1" class="form-control"/>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-3 text-right">Address 2</label>
+          <div class="col-sm-7">
+            <input type="text" name="Address 2" id="address2" class="form-control"/>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-3 text-right">Zip Code</label>
+          <div class="col-sm-7">
+            <input type="text" name="Zip Code" class="form-control"/>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-3 text-right">Email</label>
+          <div class="col-sm-7">
+            <input type="text" name="Email" class="form-control"/>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-3 text-right">Phone</label>
+          <div class="col-sm-7">
+            <input type="text" name="Phone" class="form-control"/>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-3 text-right">Payment Amount</label>
+          <div class="col-sm-7">
+            <input type="text" name="payment" class="form-control"/>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-3 text-right">Location ID</label>
+          <div class="col-sm-7">
+            <input type="text" name="locationId" class="form-control"/>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-3 text-right">Age</label>
+          <div class="col-sm-7">
+            <input type="text" name="Age" class="form-control"/>
+          </div>
+        </div>
+        
+      <div class="form-group row">
+        <a href="#/my-customers" class="button cta col-sm-4 col-sm-offset-4" ng-click="finishGettingStarted(newList)">Finish Upload</a>
+      </div>
+    </fieldset>
+  </section>
+
+ <!-- </form> -->
+
+         <!-- </div> -->
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="col-sm-4 col-sm-offset-4"></div>
+</div>
+
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <filter id="blur">
+    <feGaussianBlur stdDeviation="3"></feGaussianBlur>
+  </filter>
+</svg>

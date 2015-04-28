@@ -1,0 +1,66 @@
+<li class="row" ng-repeat="cluster in selectedClusters">
+  <section class="col-xs-4 col-md-3">
+    <div class="thumbnail circle no-border"><img src="https://cdn.tutsplus.com/photo/uploads/legacy/270_skyline/sandiegoskyline2.jpg"/></div>
+  </section>
+  <section class="cluster-copy col-xs-8 col-sm-7 col-md-8">
+    <h5>Cluster {{cluster.ClusterNumber}}</h5>
+    <h2>{{cluster.Name}}</h2>
+    <p class="descrip"> 
+      {{cluster.Description}}
+    </p>
+    <p>
+      <span ng-hide="customerFilter == 'Potential Customers'">
+        % of customer base: <span class="orange">{{cluster.Percent | number:1}} %</span> | 
+      </span>
+      # of customers: <span class="orange">{{cluster.CountCurrentCustomers}}</span>
+    </p>
+    <div class="row">
+      <a class="col-sm-4"> 
+        <span class="glyphicon glyphicon-chevron-down"></span>
+        <strong class="text-link">Learn More</strong>
+      </a>
+      <a class="col-sm-6">
+        <span class="glyphicon glyphicon-download"></span> 
+        <strong class="text-link">Download Customer Kit</strong>
+      </a>
+    </div>
+  </section>
+  <section class="col-sm-1 checkbox">
+
+      <!-- New Campaigns -->
+      <!-- <input type="checkbox" class="big" ng-show="!newClusters && !selectedLists" name="campaignClusters[]" id="cluster{{cluster.ClusterNumber}}" -->
+      
+      <!-- <div ng-if="step == 2.5">
+        <input type="checkbox" class="big" name="campaignClusters[]" id="extraCluster{{cluster.ClusterNumber}}"
+                               ng-checked="allExtraClusters" 
+                               ng-click="toggleSelection(cluster, 'selectedItems')"
+                               value="{{cluster.Name}}"/>
+        <label for="extraCluster{{cluster.ClusterNumber}}" class="check check-large" ></label>       
+      </div>      
+      <div ng-if="step == 3"> -->
+        <input type="checkbox" class="big" id="cluster{{cluster.ClusterNumber}}"
+                               ng-model="selectedItems"
+                               ng-checked="cluster.Selected" 
+                               ng-change="updateList(cluster, selectedItems)"
+                               value="{{cluster.Name}}"/>
+        <label for="cluster{{cluster.ClusterNumber}}" class="check check-large" ></label>       
+      <!-- </div> -->
+        
+
+      <!-- New Customers -->
+      <!-- <input type="checkbox" class="big" ng-if="newClusters" name="newClusters[]" id="cluster{{cluster.ClusterNumber}}"
+                             ng-model="cluster.selected" 
+                             ng-checked="selection.indexOf(cluster) > -1"
+                             ng-click="toggleSelection(cluster, 'newClusters')"
+                             value="{{cluster.Name}}"/>
+      <label ng-if="newClusters" for="cluster{{cluster.ClusterNumber}}" class="check check-large" ></label>                             
+
+      <input type="checkbox" class="big" ng-if="!newClusters &&selectedLists" name="selectedLists[]" id="cluster{{cluster.ClusterNumber}}"
+                             ng-model="cluster.selected" 
+                             ng-checked="selection.indexOf(cluster) > -1"
+                             ng-click="toggleSelection(cluster, 'selectedLists')"
+                             value="{{cluster.Name}}"/>                       
+      <label ng-if="selectedLists" for="cluster{{cluster.ClusterNumber}}" class="check check-large" ></label> -->
+
+  </section>
+</li>

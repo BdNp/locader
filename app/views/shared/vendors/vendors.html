@@ -1,0 +1,37 @@
+<li class="row" ng-repeat="vendor in mediaVendors | filter:marketplaceFilter ">
+  <div class="col-sm-4 col-md-3">
+    <div class="thumbnail circle no-border"><img src="https://cdn.tutsplus.com/photo/uploads/legacy/270_skyline/sandiegoskyline2.jpg"/></div>
+  </div>
+  <div class="col-sm-7 col-md-8">
+    <p><small class="bold">{{vendor.Subtitle}} | Status: {{vendor.Status}} | Rating: 
+        <rating ng-model="vendor.Ratings" max="max" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating>
+
+    </small></p>
+    <h2>{{vendor.Name}}</h2>
+    <p> 
+      {{vendor.Description}}
+    </p>
+    <section class="row">
+      <a class="col-sm-3">
+        <span class="glyphicon glyphicon-plus"></span>
+        <strong class="text-link">Wishlist</strong>
+      </a>
+      <a class="col-sm-2">
+        <span class="glyphicon glyphicon-envelope"></span>
+        <strong class="text-link">Email</strong>
+      </a>
+      <a class="col-sm-6">
+        <span class="glyphicon glyphicon-chevron-down"></span>
+        <strong class="text-link">Learn More</strong>
+      </a>
+    </section>
+  </div>
+  <div class="col-sm-1 checkbox">
+    <input id="vendor{{vendor.VendorID}}" type="checkbox" 
+           ng-model="vendor.selected" 
+           ng-checked="selection.indexOf(vendor) > -1"
+           ng-click="toggleSelection(vendor, 'selectedVendors')"
+           value="{{vendor.Name}}"/>
+    <label for="vendor{{vendor.VendorID}}" class="check check-large" ></label>
+  </div>
+</li>

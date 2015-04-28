@@ -1,0 +1,34 @@
+<li class="row" ng-repeat="usage in usageRates">
+  <section class="col-xs-4 col-md-3">
+    <div class="thumbnail circle no-border"><img src="https://cdn.tutsplus.com/photo/uploads/legacy/270_skyline/sandiegoskyline2.jpg"/></div>
+  </section>
+  <section class="cluster-copy col-xs-8 col-sm-7 col-md-8">
+    <h5 class="orange">{{above}}</h5>
+    <h2>{{usage.Name}}</h2>
+    <p class="descrip"> 
+      {{usage.Description}}
+    </p>
+    <div class="row">
+      <a class="col-sm-4"> 
+        <strong class="text-link">Learn More</strong>
+        <span class="glyphicon glyphicon-menu-down"></span>
+      </a>
+    </div>
+  </section>
+  <section class="col-sm-1 checkbox">
+      <input type="checkbox" class="big" id="usage{{usage.UsageID}}" ng-if="usage.unique == false" 
+                             ng-model="usage.selected" 
+                             ng-checked="selection.indexOf(usage) > -1"
+                             ng-click="toggleSelection(usage, 'selectedUsage')"
+                             value="{{usage.Name}}"/>
+      <label for="usage{{usage.UsageID}}" class="check check-large" ng-if="usage.unique == false"  ></label>
+      
+      <input type="radio" class="big" name="primary-use" id="usage{{usage.UsageID}}" ng-if="usage.unique == true"
+                             ng-model="usage.selected" 
+                             ng-checked="selection.indexOf(usage) > -1"
+                             ng-click="toggleSelection(usage, 'selectedUsage', true)"
+                             value="{{usage.Name}}"/>
+      <label for="usage{{usage.UsageID}}" class="check check-large" ng-if="usage.unique == true" ></label>
+
+  </section>
+</li>

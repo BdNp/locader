@@ -1,0 +1,33 @@
+<li class="customerList list-unstyled" ng-repeat="item in myCustomers">
+	<!-- <li> -->
+	  <div class="row">
+	    <section class="col-sm-7">
+	      <p><small class="bold orange" ng-show="item.RemainingUses && customerFilter == 'Potential Customers'">Only {{item.RemainingUses}} use left</small></p>
+	      <h2>{{item.Name}}</h2>
+	      <p>Created by {{item.Creator}} | {{item.CreationDate}}<br/>
+	      	Number of customers: <span class="orange">{{item.CountCurrentCustomers}}</span><br/>
+	      	<span ng-repeat="channel in item.Clusters">
+		        <span class="orange">{{channel.Name}}</span><span ng-show=" ! $last"> | </span>
+		    </span>
+	      	</p>
+	    </section>
+	    <section class="col-sm-3 list-unstyled"><br class="br2"/>
+	      <p><a class="bold"><span class="glyphicon glyphicon-plus"></span> Append</a></p>
+	      <p><a class="bold"><span class="glyphicon glyphicon-pencil"></span> Edit</a></p>
+	      <p><a class="bold"><span class="glyphicon glyphicon-eye-open"></span> View</a></p>
+	      <p><a class="bold"><span class="glyphicon glyphicon-remove"></span> Delete</a></p>
+	    </section>
+	    <section class="col-sm-1">
+	      <div class="checkbox">
+	        <label>
+	          <input type="checkbox" class="big" id="list{{item.ID}}"
+                             ng-model="selectedItems"
+                             ng-checked="item.Selected" 
+                             ng-change="updateList(item, selectedItems)"
+                             value="{{item.Name}}" />
+                <label for="list{{item.ID}}" class="check check-large" ></label>
+	      </div>
+	    </section>
+	  </div>
+	</li>
+<!-- </ul> -->

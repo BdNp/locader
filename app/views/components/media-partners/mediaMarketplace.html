@@ -1,0 +1,43 @@
+
+<article id="placeMedia" class="col-sm-12">
+  <nav class="row">
+    <div class="col-sm-6">
+    </div>
+    <div class="col-sm-6 last">
+      <div class="col-sm-6">
+        <button data-toggle="modal" data-target="#requestModal" class="btn-block">Invite Vendor</button>
+      </div>
+      <div class="col-sm-6">
+        <button data-toggle="modal" data-target="#requestModal" class="btn-block">Request More Info</button>
+      </div>
+    </div>
+  </nav><br class="br4"/>
+
+  <div class="row">
+  <h2 class="col-sm-6">Preferred Media Partners</h2>
+    <div class="col-sm-6 last text-right checkbox">
+      <label> Select Media Partners
+        <input type="checkbox" class="big" id="selectAll"
+                   ng-model="selectedAll"
+                   ng-change="checkAll($scope.selectedVendors)" />
+           <label for="selectAll" class="check check-large" ></label>
+      </label>
+    </div>
+  </div>
+
+  <ul class="clusters list-unstyled">
+    <div show-vendors></div>
+  </ul>
+
+</article>
+
+<!-- Request Messages -->
+<div id="requestModal" tabindex="-1" class="modal fade">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div request-message></div>
+      </div>
+    </div>
+  </div>
+</div>

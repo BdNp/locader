@@ -1,0 +1,113 @@
+<!-- Wizard Modal -->
+<h2 class="text-center col-sm-4 col-sm-offset-4">Cluster Wizard
+  <hr class="narrow orange"/>
+</h2>
+<div class="row">
+  <h3 class="text-center col-sm-4 col-sm-offset-4">Select your customer demographics and we'll help you identify the right cluster(s).</h3>
+</div>
+<form class="row">
+  <div class="col-sm-6 col-sm-offset-3">
+    <fieldset class="form-group row">
+      <div class="col-sm-3 text-right">Age</div>
+      <div class="col-sm-9">
+        <div class="select select-moz">
+          <select id="age" name="age">
+            <option>24-49</option>
+            <option>50-69</option>
+          </select>
+          <div class="locader-arrowD"></div>
+        </div>
+      </div>
+    </fieldset>
+    <fieldset class="form-group row">
+      <div class="col-sm-3 text-right">
+        <label for="marital">Marital Status</label>
+      </div>
+      <div class="col-sm-9">
+        <div class="select select-moz">
+          <select id="marital" name="marital">
+            <option>Single</option>
+            <option>Married</option>
+          </select>
+          <div class="locader-arrowD"></div>
+        </div>
+      </div>
+    </fieldset>
+    <fieldset class="form-group row">
+      <div class="col-sm-3 text-right">
+        <label for="homeowner">Home Ownership</label>
+      </div>
+      <div class="col-sm-9">
+        <div class="select select-moz">
+          <select id="homeowner" name="homeowner">
+            <option>Owner</option>
+            <option>Renter</option>
+          </select>
+          <div class="locader-arrowD"></div>
+        </div>
+      </div>
+    </fieldset>
+    <fieldset class="form-group row">
+      <div class="col-sm-3 text-right">
+        <label for="kids">Kids</label>
+      </div>
+      <div class="col-sm-9">
+        <div class="select select-moz">
+          <select id="kids" name="kids">
+            <option>No Kids</option>
+            <option>One Kids</option>
+            <option>Two Kids</option>
+            <option>Five Kids</option>
+          </select>
+          <div class="locader-arrowD"></div>
+        </div>
+      </div>
+    </fieldset>
+    <fieldset class="form-group row">
+      <div class="col-sm-3 text-right">
+        <label for="income">Income</label>
+      </div>
+      <div class="col-sm-9">
+        <div class="select select-moz">
+          <select id="income" name="income">
+            <option>$75,000 - $119,999</option>
+            <option>$120,000 - $199,999</option>
+          </select>
+          <div class="locader-arrowD"></div>
+        </div>
+      </div>
+    </fieldset>
+    <fieldset class="form-group row">
+      <div class="col-sm-3 text-right">
+        <label for="netWorth">Net Worth</label>
+      </div>
+      <div class="col-sm-9">
+        <div class="select select-moz">
+          <select id="netWorth" name="netWorth">
+            <option>100k - 499k</option>
+            <option>500k - 999k</option>
+          </select>
+          <div class="locader-arrowD"></div>
+        </div>
+      </div>
+    </fieldset>
+    <fieldset class="form-group row">
+      <div class="col-sm-3 text-right">
+        <label for="urbanicity">Urbanicity</label>
+      </div>
+      <div class="col-sm-9">
+        <div class="select select-moz">
+          <select id="urbanicity" name="urbanicity">
+            <option>City & Surrounds</option>
+            <option>Rural</option>
+          </select>
+          <div class="locader-arrowD"></div>
+        </div>
+      </div>
+    </fieldset><br class="br1"/>
+    <div class="row">
+      <button class="cta col-sm-4 col-sm-offset-4" data-dismiss="modal" ng-click="setStep(2, 1)" ng-if="!firstTime">Identify Cluster(s) </button>
+      <a href="#/new-customers/1" class="button cta col-sm-4 col-sm-offset-4" ng-if="firstTime" ng-click="finishGettingStarted()">Identify Cluster(s)</a>
+    </div>
+  </div>
+</form>

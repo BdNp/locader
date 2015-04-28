@@ -1,0 +1,24 @@
+<li class="campaign row" ng-repeat="item in Campaigns">
+  <p><small class="bold">Created by {{item.Creator}} | {{item.CreationDate}}</small></p>
+  <h2>{{item.CampaignName}}</h2>
+  <br class="br2"/>
+  <div class="row">
+    <p class="col-sm-3">
+      <strong>Audience</strong><br/>
+      Current Customers<br/>
+      Clusters: <span ng-repeat="cluster in item.Clusters">{{cluster.Name}}<span ng-show=" ! $last">, </span></span>
+    </p>
+    <p class="col-sm-5">
+      <strong>Media Channels</strong><br/>
+      <span ng-repeat="channel in item.MediaChannels">
+        {{channel.Type}} <span class="orange">{{channel.Status}}</span><br/>
+      </span>
+    </p>
+    <ul class="col-sm-2 col-sm-offset-2 list-unstyled">
+      <li><a class="bold"><span class="glyphicon glyphicon-pencil"></span> Manage Media</a></li>
+      <li><a class="bold"><span class="glyphicon glyphicon-eye-open"></span> View</a></li>
+      <li><a class="bold"><span class="glyphicon glyphicon-remove"></span> Delete</a></li>
+    </ul>
+  </div>
+  <hr/>
+</li>
