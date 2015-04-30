@@ -35,7 +35,8 @@
           <div class="col-sm-9">
 
             <!-- {{globalNav}} -->
-            <ul id="globalNav" class="nav nav-pills" ng-controller="navController">
+            <ul id="globalNav" class="nav nav-pills row" ng-controller="navController">
+                
               <li><a class="top-menu-item" ng-class="{ 'active': isActive(['/new-customers', '/my-customers'])}" href="#/new-customers">Customers</a>
                 <ul class="nav nav-pills subnav">
                   <li><a ng-class="{ 'active': isActive(['/my-customers'])}" href="#/my-customers">My Customers</a></li>
@@ -54,11 +55,29 @@
                     <li><a ng-class="{ 'active': isActive(['/media-marketplace'])}" href="#/media-marketplace">Media Marketplace</a></li>
                   </ul>
               </li>
-              <li class="pull-right">
-                  <a class="top-menu-item" ng-class="{ 'active': isActive(['/settings'])}" href="#/settings">
-                    <span class="glyphicon glyphicon-cog"></span> Settings
-                  </a>
+
+
+              <li class="col-sm-2">
+                <p>
+                <span class="glyphicon glyphicon-map-marker"></span>
+                <span popover-placement="bottom" popover="Locations" class="locationHover">New York</span>
+                <!-- <span popover-placement="bottom" popover="{{locationPopover()}}" class="locationHover">New York</span> -->
+                </p>
+                <ul class="list-unstyled" id="locationList">
+                  <li ng-repeat="location in CampaignLocations | filter: { Selected: true}">
+                    {{location.Name}}
+                  </li>
+                </ul>
+                <style>
+                  ul#locationList { display: none }
+                  .locationHover:hover + ul#locationList {
+                    display: block;
+                  }
+                </style>
+              <li>
+                <button data-toggle="modal" data-target="#locationModal" class="btn-default btn">Upload List</button>
               </li>
+                
             </ul>
 
 
@@ -79,6 +98,17 @@
 
     
     <div ng-view id="pageContent" class="container" ng-show="user != -1"></div>
+
+
+<div id="locationModal" tabindex="-1" class="modal fade">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div choose-locations></div>
+      </div>
+    </div>
+  </div>
+</div>
 
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 

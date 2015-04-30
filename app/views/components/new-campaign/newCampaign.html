@@ -73,40 +73,23 @@
       </div>
     </section>
 
-    <section class="form-group row" ng-show="step > 4">
+    <section class="form-group row" ng-show="step > 2">
     <!-- <section class="form-group row"> -->
       <h2>5. What channels would you like to use for this campaign?
       </h2>
       <p class="col-sm-12 bold italic">We recommend <span class="orange">Direct Mail, Email, and Mobile Text</span></p>
 
       <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-4" ng-repeat="channel in availableChannels">
           <div class="checkbox">
-            <label for="channelDirectMail" >
-              <input id="channelDirectMail" type="checkbox" ng-click="toggleSelection('Direct Mail', 'campaignChannels')"/>
-              <label for="channelDirectMail" class="check check-large" ></label>Direct Mail
+            <label for="channel{{ channel.id }}" >
+              <input id="channel{{ channel.id }}" type="checkbox" 
+                     ng-model="campaignChannels" 
+                     ng-checked="channel.Selected" 
+                     ng-change="updateList(channel, '', campaignChannels)"/>
+              <label for="channel{{ channel.id }}" class="check check-large" ></label>{{ channel.name }}
             </label>
           </div><br/>
-          <div class="checkbox">
-            <label for="channelEmail" >
-              <input id="channelEmail" type="checkbox" ng-click="toggleSelection('Email', 'campaignChannels')"/>
-              <label for="channelEmail" class="check check-large" ></label>Email
-            </label>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="checkbox">
-            <label for="channelFacebook" >
-              <input id="channelFacebook" type="checkbox" ng-click="toggleSelection('Facebook', 'campaignChannels')"/>
-              <label for="channelFacebook" class="check check-large" ></label>Facebook
-            </label>
-          </div><br/>
-          <div class="checkbox">
-            <label for="channelMobileText" >
-              <input id="channelMobileText" type="checkbox" ng-click="toggleSelection('Mobile Text', 'campaignChannels')"/>
-              <label for="channelMobileText" class="check check-large" ></label>Mobile Text
-            </label>
-          </div>
         </div>
       </div>
 

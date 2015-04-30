@@ -5,7 +5,7 @@ myApp.controller('MainController', ['$scope', 'cartService', function($scope, ca
 	// Begin the app
 
 	// Login / Getting Started
-	$scope.user = '1';
+	$scope.user = '-1';
 	if ($scope.user == '-1')
 		$scope.firstTime = true;
 	$scope.finishGettingStarted = function(newlistName) {
@@ -31,24 +31,41 @@ myApp.controller('MainController', ['$scope', 'cartService', function($scope, ca
 
 	$scope.campaignLocations = [
 		{ 
-			ID: 1,
+			ID: '1',
 			Name: 'New York',
+			type: 'location',
+			Selected: true,
 			SubLocations: [
-				{	ID: '1_1', Name: 'Bronx', },
-				{	ID: '1_2', Name: 'Brooklyn', },
-				{	ID: '1_3', Name: 'Manhattan', },
-				{	ID: '1_4', Name: 'Queens', },
-				{	ID: '1_5', Name: 'Staten Island', },
+				{
+					ID: '1_1',
+					Name: 'New York City',
+					type: 'sublocation',
+					SubLocations: [
+						{	ID: '1_1_1', Name: 'Bronx', },
+						{	ID: '1_1_2', Name: 'Brooklyn', },
+						{	ID: '1_1_3', Name: 'Manhattan', },
+						{	ID: '1_1_4', Name: 'Queens', },
+						{	ID: '1_1_5', Name: 'Staten Island', },
+				],
+				}
 			],
 		}, 
 		{
-			ID: 2,
-			Name: 'Boston',
+			ID: '2',
+			Name: 'Massachussetts',
+			type: 'location',
 			SubLocations: [
-				{	ID: '2_1', Name: 'Boston Metro' },
-				{	ID: '2_2', Name: 'Brookline' },
-				{	ID: '2_3', Name: 'Newton' },
-				{	ID: '2_4', Name: 'Waltham' }
+				{
+					ID: '2_1',
+					Name: 'Boston',
+					type: 'sublocation',
+					SubLocations: [
+						{	ID: '2_1_1', Name: 'Boston Metro' },
+						{	ID: '2_1_2', Name: 'Brookline' },
+						{	ID: '2_1_3', Name: 'Newton' },
+						{	ID: '2_1_4', Name: 'Waltham' }
+					],
+				}
 			],
 		}
 	];
@@ -191,7 +208,7 @@ myApp.controller('MainController', ['$scope', 'cartService', function($scope, ca
 	$scope.myCustomers = [
 		{
 			ID: '1',
-			type: 'customer-list',
+			type: 'cluster',
 			Name: 'Customer List 1',
 			Creator: 'Brad N',
 			CreationDate: '6/12/11 at 12:15pm',
@@ -204,7 +221,7 @@ myApp.controller('MainController', ['$scope', 'cartService', function($scope, ca
 		},
 		{
 			ID: '2',
-			type: 'customer-list',
+			type: 'cluster',
 			Name: 'Customer List B',
 			Creator: 'John Doe',
 			CreationDate: '1/12/14 at 2:15pm',
@@ -217,7 +234,7 @@ myApp.controller('MainController', ['$scope', 'cartService', function($scope, ca
 		},
 		{
 			ID: '3',
-			type: 'customer-list',
+			type: 'cluster',
 			Name: 'Seasonal List',
 			Creator: 'Kris Kringle',
 			CreationDate: '12/24/14 at 2:15pm',
@@ -265,6 +282,7 @@ myApp.controller('MainController', ['$scope', 'cartService', function($scope, ca
 	$scope.cartLists = ['myCustomers', 'selectedClusters', 'usageRates'];
 
     $scope.selectedItems = [];
+    $scope.selectedLocations = [];
     $scope.updateList = function(item, selected) {
     	if(item) item.Selected = selected;
         
@@ -282,11 +300,12 @@ myApp.controller('MainController', ['$scope', 'cartService', function($scope, ca
         console.log($scope.selectedItems);
     }
 
-    $scope.checkAll = function(list, source) {
+    $scope.checkAll = function(list, source, noUpdate) {
     	console.log('checkAll');
         angular.forEach($scope[list], function (item) {
             item.Selected = source;
         });
+        if (noUpdate) return false;
         $scope.updateList();
     }
     
@@ -305,6 +324,24 @@ myApp.controller('MainController', ['$scope', 'cartService', function($scope, ca
         }
         $scope.updateList();
     }
+
+    // $scope.toggle('myToggleableDropdown', 'on');
+	$scope.locationPopover = function() {
+		var output = '<ul class="list-unstyled">';
+		angular.forEach($scope.campaignLocations, function (location) {
+			if (location.Selected)	{
+				output += '<li>' + location.Name + '</li>';
+				if (location.SubLocations.length > 0) {
+					angular.forEach(location.SubLocations, function (sublocation) {
+						if (sublocation.Selected)
+						output += '<li>' + sublocation.Name + '</li>';
+					});
+				}
+			}
+		});
+		output += '</ul>';
+		return output;
+	}
 
 }]);
 
@@ -471,6 +508,18 @@ myApp.directive('uploadWizard', function() {
 		transclude: true,
 		scope: false,
 		templateUrl: 'app/views/shared/upload/upload.html',
+		link: function(scope, elements, attrs) {
+
+		}
+	}
+});
+
+myApp.directive('chooseLocations', function() {
+	return {
+		restrict: 'A',
+		transclude: true,
+		scope: false,
+		templateUrl: 'app/views/shared/locations/locations.html',
 		link: function(scope, elements, attrs) {
 
 		}
@@ -916,7 +965,7 @@ myApp.controller('newCustomersController', ['$scope', '$routeParams', '$route', 
 
 }]);
 
-myApp.controller('myCustomersController', ['$scope', '$route', function($scope, $route) {
+myApp.controller('myCustomersController', ['$scope', '$route', '$modal', function($scope, $route, $modal) {
 
 	$scope.page = $route.current.title;
 	$scope.customerFilter = 'Current Customers';
@@ -979,6 +1028,20 @@ myApp.controller('myCustomersController', ['$scope', '$route', function($scope, 
 		$scope.step = step;
 		$scope.progressBar = bar || $scope.progressBar;
 	}
+
+	$scope.open = function ( size, url) {
+		url = url || 'app/views/shared/modals/modalCampaignSuccess.html';
+		var modalInstance = $modal.open({
+	      templateUrl: url,
+	      controller: 'ModalInstanceCtrl',
+	      size: size,
+	      resolve: {
+	        items: function () {
+	          return $scope.items;
+	        }
+	      }
+	    });
+	};
 
 }]);
 
