@@ -11,6 +11,10 @@
     <p> 
       {{vendor.Description}}
     </p>
+    <p ng-show="vendor.showLearnMore">
+      {{vendor.learnMore}}
+    </p>
+
     <section class="row">
       <a class="col-sm-3">
         <span class="glyphicon glyphicon-plus"></span>
@@ -20,9 +24,9 @@
         <span class="glyphicon glyphicon-envelope"></span>
         <strong class="text-link">Email</strong>
       </a>
-      <a class="col-sm-6">
-        <span class="glyphicon glyphicon-chevron-down"></span>
-        <strong class="text-link">Learn More</strong>
+      <a class="col-sm-6" ng-click="vendor.showLearnMore = !vendor.showLearnMore"> 
+        <span class="glyphicon" ng-class="vendor.showLearnMore ? 'glyphicon-chevron-up' : 'glyphicon-chevron-down' "></span>
+        <strong class="text-link">{{vendor.showLearnMore === true ? 'Close' : 'Learn More'}}</strong>
       </a>
     </section>
   </div>

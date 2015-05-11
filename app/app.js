@@ -5,7 +5,7 @@ myApp.controller('MainController', ['$scope', 'cartService', function($scope, ca
 	// Begin the app
 
 	// Login / Getting Started
-	$scope.user = '-1';
+	$scope.user = '1';
 	if ($scope.user == '-1')
 		$scope.firstTime = true;
 	$scope.finishGettingStarted = function(newlistName) {
@@ -39,9 +39,10 @@ myApp.controller('MainController', ['$scope', 'cartService', function($scope, ca
 				{
 					ID: '1_1',
 					Name: 'New York City',
+					Selected: true,
 					type: 'sublocation',
 					SubLocations: [
-						{	ID: '1_1_1', Name: 'Bronx', },
+						{	ID: '1_1_1', Name: 'Bronx', Selected: true },
 						{	ID: '1_1_2', Name: 'Brooklyn', },
 						{	ID: '1_1_3', Name: 'Manhattan', },
 						{	ID: '1_1_4', Name: 'Queens', },
@@ -76,6 +77,7 @@ myApp.controller('MainController', ['$scope', 'cartService', function($scope, ca
 			type: 'cluster',
 			Name: 'City Mixers',
 			Description: 'Mixers are single, ethnically diverse urbanites in their 30s to 50s with no children in the home. They work in a broad wpectrum of white collar jobs.',
+			learnMore: 'Rural & Mobile is a group on the go, seemingly without commitment to much of anything. At a mean age of 45, this group is predominantly single renters, with no children at home and little net worth. With mostly high school and vocational/technical degrees, this group indexes above average for blue-collar workers, and nearly twice as many housewives compared to the national average. Interests and media preferences reflect marked gender dichotomies. For instance, popular magazines include Woman\'s World and Country Living, as well as North American Hunter and Guns & Ammo.',
 			Percent: 19.4,
 			CountCurrentCustomers: 48836,
 		},
@@ -84,6 +86,7 @@ myApp.controller('MainController', ['$scope', 'cartService', function($scope, ca
 			type: 'cluster',
 			Name: 'Staying Home',
 			Description: 'Staying Home is a group of single, downtown-metro renters. This upper-middle-aged, high school and vocational/technical educated group successfully makes ends meet with entry-level clerical and service jobs.',
+			learnMore: 'Rural & Mobile is a group on the go, seemingly without commitment to much of anything. At a mean age of 45, this group is predominantly single renters, with no children at home and little net worth. With mostly high school and vocational/technical degrees, this group indexes above average for blue-collar workers, and nearly twice as many housewives compared to the national average. Interests and media preferences reflect marked gender dichotomies. For instance, popular magazines include Woman\'s World and Country Living, as well as North American Hunter and Guns & Ammo.',
 			Percent: 10.4,
 			CountCurrentCustomers: 7,
 		},
@@ -92,6 +95,7 @@ myApp.controller('MainController', ['$scope', 'cartService', function($scope, ca
 			type: 'cluster',
 			Name: 'Productive Havens',
 			Description: 'Productive Havens contains mid-20s to mid-40s homeowners with lower incomes, yet some net worth. They are single, mostly childless and much more likely to be students than the national average.',
+			learnMore: 'Rural & Mobile is a group on the go, seemingly without commitment to much of anything. At a mean age of 45, this group is predominantly single renters, with no children at home and little net worth. With mostly high school and vocational/technical degrees, this group indexes above average for blue-collar workers, and nearly twice as many housewives compared to the national average. Interests and media preferences reflect marked gender dichotomies. For instance, popular magazines include Woman\'s World and Country Living, as well as North American Hunter and Guns & Ammo.',
 			Percent: 7.5,
 			CountCurrentCustomers: 5,
 		},
@@ -144,6 +148,7 @@ myApp.controller('MainController', ['$scope', 'cartService', function($scope, ca
 			Name: "RICG Agency",
 			VendorContact: "",
 			Description: "We don't do arts and crafts. We create memorable campaigns defined by humanity, beauty and simplicity, while closely harmonizing brand values with consumer needs and preferences. We don't chase answers to problems you've already solved. We connect your brand to highly targeted audiences through an integrated mix of traditional and digital channels, laser-focused on increasing your ROI.\nWe don't stop at the point of execution. We ensure a more rewarding brand journey through personalized programs that transform customers into passionate ambassadors of our client's brands.\nThis app allows you to send campaign lists and select media assets to send to RICG directly.",
+			learnMore: 'Rural & Mobile is a group on the go, seemingly without commitment to much of anything. At a mean age of 45, this group is predominantly single renters, with no children at home and little net worth. With mostly high school and vocational/technical degrees, this group indexes above average for blue-collar workers, and nearly twice as many housewives compared to the national average. Interests and media preferences reflect marked gender dichotomies. For instance, popular magazines include Woman\'s World and Country Living, as well as North American Hunter and Guns & Ammo.',
 			Ratings: 5,
 			Services: ['Direct Mail', 'Social', 'Email', 'Agency Services'],
 		},
@@ -154,6 +159,7 @@ myApp.controller('MainController', ['$scope', 'cartService', function($scope, ca
 			Name: "4 Info",
 			VendorContact: "",
 			Description: "4INFO is the first mobile platform that combines true, mobile Ad targeting at scale with the ability to track results at the cash register. That means you can finally make LOCAL mobile ads a core component of your integrated media campaigns. Click the button and use the form to request a call with a Mobile Marketing Expert who can use your Locader reports to build a well-planned mobile marketing strategy with you.",
+			learnMore: 'Rural & Mobile is a group on the go, seemingly without commitment to much of anything. At a mean age of 45, this group is predominantly single renters, with no children at home and little net worth. With mostly high school and vocational/technical degrees, this group indexes above average for blue-collar workers, and nearly twice as many housewives compared to the national average. Interests and media preferences reflect marked gender dichotomies. For instance, popular magazines include Woman\'s World and Country Living, as well as North American Hunter and Guns & Ammo.',
 			Ratings: 3,
 			Services: ['Mobile Text', 'Email'],
 		},
@@ -164,6 +170,7 @@ myApp.controller('MainController', ['$scope', 'cartService', function($scope, ca
 			Name: "Segment Specific Facebook Ads",
 			VendorContact: "",
 			Description: "If you are purchasing new prospect lists using this tool, you can optionally upload that list to your Facebook Advertising account as a new custom audience. This will allow you to create a campaign in your Facebook Advertising account to that list of prospects.\nWhen you get to that step you will need to enter your Facebook Advertiser login. Click button to right to learn more about Facebook Advertising and Custom Audiences and create an account if you don't have one already so you are ready to use this feature.",
+			learnMore: 'Rural & Mobile is a group on the go, seemingly without commitment to much of anything. At a mean age of 45, this group is predominantly single renters, with no children at home and little net worth. With mostly high school and vocational/technical degrees, this group indexes above average for blue-collar workers, and nearly twice as many housewives compared to the national average. Interests and media preferences reflect marked gender dichotomies. For instance, popular magazines include Woman\'s World and Country Living, as well as North American Hunter and Guns & Ammo.',
 			Ratings: 2.5,
 			Services: ['Facebook'],
 		},
@@ -177,6 +184,7 @@ myApp.controller('MainController', ['$scope', 'cartService', function($scope, ca
 			pricePerUnit: 0,
 			Description: 'Facebook-only usage, no cost. You must have a minimum of 3000 new customers to use this',
 			above: 'Automatically included, no additional charge',
+			learnMore: 'Rural & Mobile is a group on the go, seemingly without commitment to much of anything. At a mean age of 45, this group is predominantly single renters, with no children at home and little net worth. With mostly high school and vocational/technical degrees, this group indexes above average for blue-collar workers, and nearly twice as many housewives compared to the national average. Interests and media preferences reflect marked gender dichotomies. For instance, popular magazines include Woman\'s World and Country Living, as well as North American Hunter and Guns & Ammo.',
 			unique: false
 		},
 		{
@@ -185,6 +193,7 @@ myApp.controller('MainController', ['$scope', 'cartService', function($scope, ca
 			Name: 'One Time Use',
 			pricePerUnit: 0.05,
 			Description: 'Single-time Use, includes Facebook Usage',
+			learnMore: 'Rural & Mobile is a group on the go, seemingly without commitment to much of anything. At a mean age of 45, this group is predominantly single renters, with no children at home and little net worth. With mostly high school and vocational/technical degrees, this group indexes above average for blue-collar workers, and nearly twice as many housewives compared to the national average. Interests and media preferences reflect marked gender dichotomies. For instance, popular magazines include Woman\'s World and Country Living, as well as North American Hunter and Guns & Ammo.',
 			unique: true
 		},
 		{
@@ -193,6 +202,7 @@ myApp.controller('MainController', ['$scope', 'cartService', function($scope, ca
 			Name: 'Two Time Use',
 			pricePerUnit: 0.055,
 			Description: 'Two-time Use, includes Facebook Usage',
+			learnMore: 'Rural & Mobile is a group on the go, seemingly without commitment to much of anything. At a mean age of 45, this group is predominantly single renters, with no children at home and little net worth. With mostly high school and vocational/technical degrees, this group indexes above average for blue-collar workers, and nearly twice as many housewives compared to the national average. Interests and media preferences reflect marked gender dichotomies. For instance, popular magazines include Woman\'s World and Country Living, as well as North American Hunter and Guns & Ammo.',
 			unique: true
 		},
 		{
@@ -201,6 +211,7 @@ myApp.controller('MainController', ['$scope', 'cartService', function($scope, ca
 			Name: '1-year Unlimited Use',
 			pricePerUnit: 0.065,
 			Description: 'Unlimited Direct Mail for 1 Year, includes Facebook Usage',
+			learnMore: 'Rural & Mobile is a group on the go, seemingly without commitment to much of anything. At a mean age of 45, this group is predominantly single renters, with no children at home and little net worth. With mostly high school and vocational/technical degrees, this group indexes above average for blue-collar workers, and nearly twice as many housewives compared to the national average. Interests and media preferences reflect marked gender dichotomies. For instance, popular magazines include Woman\'s World and Country Living, as well as North American Hunter and Guns & Ammo.',
 			unique: true
 		},
 	];
@@ -285,13 +296,14 @@ myApp.controller('MainController', ['$scope', 'cartService', function($scope, ca
     $scope.selectedLocations = [];
     $scope.updateList = function(item, selected) {
     	if(item) item.Selected = selected;
-        
+
         $scope.selectedItems = [];
         cartService.clearList();
         angular.forEach($scope.cartLists, function(list) {
             angular.forEach($scope[list], function(item) {
                 if (item.Selected === true) {
                     $scope.selectedItems.push(item);
+
                     // cartService.addItem(item);
                 }
             });
@@ -907,31 +919,52 @@ myApp.controller('newCustomersController', ['$scope', '$routeParams', '$route', 
         });
     }
 
-    $scope.checkAll = function(list, source) {
-        angular.forEach($scope[list], function (item) {		item.Selected = source		});
-        $scope.updateList();
-    }
+    // $scope.checkAll = function(list, source) {
+    //     angular.forEach($scope[list], function (item) {		item.Selected = source		});
+    //     $scope.updateList();
+    // }
     
-    $scope.clearList = function(list) {
-        if (list == 'all') {
-            angular.forEach($scope.cartLists, function(list) {
-                angular.forEach($scope[list], function(item) {
-                    item.Selected = false;
-                });
-            });
-        } else {
-            angular.forEach($scope[list], function (item) {
-                item.Selected = false;
-            });
-        }
-        $scope.updateList();
-    }
+    // $scope.clearList = function(list) {
+    //     if (list == 'all') {
+    //         angular.forEach($scope.cartLists, function(list) {
+    //             angular.forEach($scope[list], function(item) {
+    //                 item.Selected = false;
+    //             });
+    //         });
+    //     } else {
+    //         angular.forEach($scope[list], function (item) {
+    //             item.Selected = false;
+    //         });
+    //     }
+    //     $scope.updateList();
+    // }
 
+    $scope.toggleSelection = function(item, list, value) {
+    	item.Selected = !item.Selected;
+    	console.log(item.Selected);
+    	function addObject(i) {
+    		console.log(i);
+    		if (i.Selected) return item; else return null;
+    	}
+    	if (item.UsageID == 1)
+	    	$scope.selectedUsage[0] = addObject(item);
+    	else {
+    		$scope.selectedUsage[1] = item;
+	    	 // for(i = 1; i < $scope.usageRates.length; i++) {
+	    	 	// if (item.UsageID == i) {
+	    	 		// $scope.selectedUsage[1] = item;
+	    	 	// }
+
+	    	 	// $scope.usageRates[i].Selected = '';
+	    	 // }	
+	    	 // $scope.selectedUsage[1] = addObject(item);
+    	}
+    	console.log($scope.selectedUsage);
+    }
    
 	$scope.getTotal = function(list) {
 		var total = 0;
 		list = list || 'selectedItems';
-		console.log(list);
 		for(var i = 0; i < $scope[list].length; i++){
 	        total += $scope[list][i].CountCurrentCustomers;
 	    }
@@ -946,6 +979,7 @@ myApp.controller('newCustomersController', ['$scope', '$routeParams', '$route', 
 	$scope.getPrice = function() {
 		var total = 0;
 		for(var i = 0; i < $scope.selectedUsage.length; i++) {
+			if ($scope.selectedUsage[i] != null)
 			total += $scope.selectedUsage[i].pricePerUnit * $scope.getTotal();
 		}
 		return total.toFixed(2);
@@ -1088,7 +1122,7 @@ myApp.controller('gettingStartedController', ['$scope', function($scope) {
 	$scope.steps = [ 'Select Files', 'Name List', 'Match Headers' ];
 	$scope.gettingStarted = true;
 	$scope.username = 'Test';
-
+console.log('gs controller');
 	// Step functions
 	$scope.step = 1;
 	$scope.progressBar = 1;
@@ -1101,6 +1135,31 @@ myApp.controller('gettingStartedController', ['$scope', function($scope) {
 		$scope.user = address;
 		$scope.setStep(2);
 	}
+
+    $scope.selectedItems = [];
+    $scope.selectedLocations = [];
+    $scope.updateList = function(item, selected) {
+    	if(item) item.Selected = selected;
+
+        $scope.selectedLocations = [];
+        angular.forEach($scope.selectedItems, function(list) {
+            angular.forEach($scope[list], function(item) {
+                if (item.Selected === true) {
+                    $scope.selectedLocations.push(item);
+                }
+            });
+        });
+        console.log($scope.selectedLocations);
+    }
+
+    $scope.checkAll = function(list, source, noUpdate) {
+    	console.log('checkAll');
+        angular.forEach($scope[list], function (item) {
+            item.Selected = source;
+        });
+        if (noUpdate) return false;
+        $scope.updateList();
+    }
 
 }]);
 

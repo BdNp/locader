@@ -9,9 +9,9 @@
       {{cluster.Description}}
     </p>
     
-    <div ng-show="cluster.showLearnMore">
+    <p ng-show="cluster.showLearnMore">
       {{cluster.learnMore}}
-    </div>
+    </p>
     <p>
       <span ng-hide="customerFilter == 'Potential Customers'">
         % of customer base: <span class="orange">{{cluster.Percent | number:1}} %</span> | 

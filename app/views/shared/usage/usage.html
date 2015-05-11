@@ -8,10 +8,14 @@
     <p class="descrip"> 
       {{usage.Description}}
     </p>
+    <p ng-show="usage.showLearnMore">
+      {{usage.learnMore}}
+    </p>
+
     <div class="row">
-      <a class="col-sm-4"> 
-        <strong class="text-link">Learn More</strong>
-        <span class="glyphicon glyphicon-menu-down"></span>
+      <a class="col-sm-4" ng-click="usage.showLearnMore = !usage.showLearnMore"> 
+        <span class="glyphicon" ng-class="usage.showLearnMore ? 'glyphicon-chevron-up' : 'glyphicon-chevron-down' "></span>
+        <strong class="text-link">{{usage.showLearnMore === true ? 'Close' : 'Learn More'}}</strong>
       </a>
     </div>
   </section>
@@ -19,14 +23,14 @@
       <input type="checkbox" class="big" id="usage{{usage.UsageID}}" ng-if="usage.unique == false" 
                              ng-model="usage.selected" 
                              ng-checked="selection.indexOf(usage) > -1"
-                             ng-click="toggleSelection(usage, 'selectedUsage')"
+                             ng-change="toggleSelection(usage)"
                              value="{{usage.Name}}"/>
       <label for="usage{{usage.UsageID}}" class="check check-large" ng-if="usage.unique == false"  ></label>
       
       <input type="radio" class="big" name="primary-use" id="usage{{usage.UsageID}}" ng-if="usage.unique == true"
                              ng-model="usage.selected" 
                              ng-checked="selection.indexOf(usage) > -1"
-                             ng-click="toggleSelection(usage, 'selectedUsage', true)"
+                             ng-change="toggleSelection(usage)"
                              value="{{usage.Name}}"/>
       <label for="usage{{usage.UsageID}}" class="check check-large" ng-if="usage.unique == true" ></label>
 
