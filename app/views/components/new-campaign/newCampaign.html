@@ -31,15 +31,20 @@
 
     <section class="form-group row" ng-show="step == 2.5">
       <h2>3. Which Lists would you like to target?</h2>
-      <h4 class="text-right"> 
-         <label class="bold">
-         Select All Customers
-           <input type="checkbox" class="big"
-                   ng-model="allCustomersLists" id="selectAllLists"
-                   ng-change="checkAll('myCustomers', allCustomersLists)" />
-           <label for="selectAllLists" class="check check-large" ></label>
-         </label>
-      </h4>
+      <div class="row" style="height: 54px">
+        <h4 class="col-xs-6">
+          <a data-toggle="modal" data-target="#uploadModal">Upload List</a>
+        </h4>
+        <h4 class="text-right col-xs-6 last"> 
+           <label class="bold">
+           Select All Customers
+             <input type="checkbox" class="big"
+                     ng-model="allCustomersLists" id="selectAllLists"
+                     ng-change="checkAll('myCustomers', allCustomersLists)" />
+             <label for="selectAllLists" class="check check-large" ></label>
+           </label>
+        </h4>
+      </div>
       <ul class="clusters list-unstyled">
         <div show-customer-list></div>
       </ul>
@@ -99,6 +104,22 @@
 
 </article>
 <aside id="cart" class="col-sm-3" show-cart></aside>
+
+<div id="uploadModal" tabindex="-1" class="modal fade">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h3>Upload List</h3>
+        <div class="row">
+          <div class="col-sm-4 col-sm-offset-4">
+            <div upload-wizard></div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
 
 <div id="wizardModal" tabindex="-1" class="modal fade">
   <div class="modal-dialog modal-lg">
