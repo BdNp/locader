@@ -1,0 +1,295 @@
+<!doctype html>
+<html>
+<head>
+</head>
+	<link rel="stylesheet" href="stylesheets/screen.css" />
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.2/normalize.min.css" />
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+<body>
+
+	<div class="container">
+	  <div class="row">
+	    <h2></h2>
+	    <h1>Locader.com Web Style Guide</h1>
+	    <h4>Powered by Bootstrap 3.3.2</h4>
+	  </div>
+	  <h1></h1>
+	  <div id="fonts" class="row">
+	    <hr/>
+	    <h3>Font: Open Sans</h3>
+	    <div class="row">
+	      <div class="col-sm-3">Base size 16px</div>
+	      <div class="col-sm-2">Normal</div><b class="col-sm-2">Bold</b>
+	      <div class="col-sm-1"><a href="#" class="text-link">Link</a></div>
+	      <div class="col-sm-4"><a href="#" class="cta">Call to Action</a></div>
+	    </div>
+	  </div>
+	  <div id="colors" class="row"> 
+	    <hr/>
+	    <h3>Colors</h3>
+	    <p>
+	      <div class="orange bgColor">Orange #F04923</div>
+	      <div class="dkOrange bgColor">DkOrange #C43D1F</div>
+	      <div class="gray1 bgColor">Gray 1 #707173</div>
+	      <div class="gray2 bgColor">Gray 2 #A4A7A9</div>
+	      <div class="gray3 bgColor">Gray 3 #C2C5C8</div>
+	      <div class="gray4 bgColor">Gray 4 #E6EDF0</div>
+	      <div class="white bgColor">White #FFFFFF</div>
+	    </p>
+	  </div>
+	  <div id="headers" class="row">
+	    <hr/>
+	    <h3>Header Tags, Font Size / Leading</h3>
+	    <h1>
+	       
+	      Header 1, 52/41<small>sub-header 24</small>
+	    </h1>
+	    <h2>Header 2, 34/36</h2>
+	    <h3>Header 3, 22/26</h3>
+	    <h4>Header 4, 18/22</h4>
+	    <h5>Header 5, 26? / ?? (used for footer popovers?)</h5>
+	  </div>
+	  <div id="buttons" class="row"> 
+	    <hr/>
+	    <h3>Buttons</h3>
+	    <button>Normal</button>
+	    <button class="btnwide">Wide</button>
+	    <button class="cta">Call to Action</button>
+	    <p></p>
+	    <div class="btn-toolbar"> 
+	      <div class="btn-group">
+	        <button>Choice</button>
+	        <button class="active">Active</button>
+	      </div>
+	    </div>
+	    <p></p>
+	    <div class="btn-toolbar">
+	      <div class="btn-group">
+	        <button>Choice 1</button>
+	        <button>Choice 2</button>
+	        <button>Choice 3</button>
+	      </div>
+	    </div>
+	  </div>
+	  <div id="inputs" class="row">
+	    <hr/>
+	    <h3>Input types</h3>
+	    <div class="form-horizontal">
+	      <div class="form-group">
+	        <div class="col-sm-3">
+	          <div class="checkbox">
+	            <label>
+	              <input type="checkbox" class="big"/>
+	              <div class="locader-checkLg_off check"></div><span>Large Checkbox</span>
+	            </label>
+	          </div>
+	        </div>
+	        <div class="col-sm-3">
+	          <div class="checkbox">
+	            <label>
+	              <input type="checkbox"/>
+	              <div class="locader-checkSm_off check"></div><span>Small Checkbox            </span>
+	            </label>
+	          </div>
+	        </div>
+	        <label for="demo" class="col-sm-1 control-label">Label</label>
+	        <div class="col-sm-4">
+	          <input id="demo" type="text" placeholder="placeholder" class="form-control"/>
+	        </div>
+	        <div class="col-sm-6">
+	          <div class="select select-moz">
+	            <select> 
+	              <option>Selection box</option>
+	              <option>Option 1</option>
+	              <option>Option 2</option>
+	            </select>
+	            <div class="locader-arrowD"></div>
+	          </div>
+	        </div>
+	        <div class="col-sm-6 well upload center">
+	          <h3>Drag'n'Drop File Upload</h3>
+	          <p>
+	            <button class="cta wide">Browse & Upload</button>
+	          </p>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	  <div id="hr" class="row">
+	    <hr/>
+	    <h3>Horizontal rules</h3>
+	    <h4 class="center">Full, default color</h4>
+	    <hr/>
+	    <h4 class="center">Narrow, orange</h4>
+	    <hr class="narrow orange"/>
+	  </div>
+	  <!-- Images-->
+	  <div id="images" class="row">
+	    <hr/>
+	    <h3>Image Thumbnails (round, 50% border radius, cropped)</h3>
+	    <!--.col-sm-4
+	    h4.center big
+	    a.thumbnail.circle.no-border.big(href="#")
+	      img(src="https://cdn.tutsplus.com/photo/uploads/legacy/270_skyline/sandiegoskyline2.jpg")
+	    -->
+	    <div class="col-sm-4">
+	      <h4 class="center">standard, 160px diameter</h4><a href="#" class="thumbnail circle no-border"><img src="https://cdn.tutsplus.com/photo/uploads/legacy/270_skyline/sandiegoskyline2.jpg"/></a>
+	    </div>
+	    <div class="col-sm-4">
+	      <h4 class="center">small(optional), 80px diameter</h4><a href="#" class="thumbnail circle no-border small"><img src="https://cdn.tutsplus.com/photo/uploads/legacy/270_skyline/sandiegoskyline2.jpg"/></a>
+	    </div>
+	  </div>
+	  <!-- Navigation-->
+	  <div class="row">
+	    <hr/>
+	    <h3>Navigation</h3>
+	  </div>
+	  <div class="row">
+	    <ul id="globalNav" class="nav nav-pills">
+	      <li><a href="#" class="active">Menu 1</a></li>
+	      <li><a href="#">Menu 2</a></li>
+	      <li class="disabled"><a>Menu 3</a></li>
+	    </ul>
+	  </div>
+	  <hr/>
+	  <div class="row">
+	    <ul id="myTab" class="nav nav-tabs nav-justified">
+	      <li class="active"> <a href="#tab1" data-toggle="tab"> 
+	          <p><strong>Tab Status: Active</strong></p>
+	          <h2>Direct Mail</h2></a></li>
+	      <li> <a href="#tab2" data-toggle="tab"> 
+	          <p><strong>Tab Status: Inactive</strong></p>
+	          <h2>Email        </h2></a></li>
+	      <li class="disabled"><a>
+	          <p><strong>Tab Status: Disabled</strong></p>
+	          <h2>Mobile Text</h2></a></li>
+	    </ul>
+	  </div>
+	  <div class="tab-content">
+	    <div id="tab1" class="tab-pane active">
+	      <div class="row">
+	        <h4></h4>
+	        <h4>This is the first tab's content</h4>
+	      </div>
+	    </div>
+	    <div id="tab2" class="tab-pane">
+	      <div class="row">
+	        <h4></h4>
+	        <h3 class="orange center">This is the Second tab's content</h3>
+	        <p>Additional text</p>
+	      </div>
+	    </div>
+	  </div>
+	  <hr/>
+	  <div class="well">
+	    <h3>Components</h3>
+	  </div>
+	  <div class="row">
+	    <h4>Progress Steps</h4>
+	    <div class="row steps">
+	      <div class="col-sm-4 complete"> 
+	        <p>Step 1</p>
+	        <p>Complete</p>
+	      </div>
+	      <div class="col-sm-4 in-progress">Step 2, In Progress</div>
+	      <div class="col-sm-4">Step 3, Not reached</div>
+	    </div>
+	  </div>
+	  <div class="row">
+	    <hr/>
+	    <h3>Modals and Popovers</h3>
+	    <button data-toggle="modal" data-target="#myModal" class="cta">Modal</button>
+	    <button data-toggle="popover" data-placement="top" title="Popover" data-content="This is a popover. Pretty cool, right?" class="cta">Popover</button>
+	    <!--Modal content underneath modal CTA-->
+	    <div id="myModal" tabindex="-1" class="modal fade">
+	      <div class="modal-dialog">
+	        <div class="modal-content">
+	          <div class="modal-header">Header</div>
+	          <div class="modal-body">
+	            <p>This is the body</p>
+	            <button data-dismiss="modal" class="cta">Ok, got it.</button>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+	    <!-- Collapsible checklist-->
+	    <div class="row">
+	      <hr/>
+	      <div class="col-sm-6">
+	        <h4>Collapsing Checklist</h4>
+	        <ul class="list-unstyled">
+	          <li> 
+	            <div class="checkbox row">
+	              <label class="col-sm-10">
+	                <input type="checkbox"/>
+	                <div class="locader-checkSm_off check"></div><span>Checkbox</span>
+	              </label>
+	              <div class="col-sm-1"><a href="#c1" data-toggle="collapse" class="locader-arrowR">       </a></div>
+	            </div>
+	            <div class="row"></div>
+	            <div id="c1" class="collapse">
+	              <ul class="list-unstyled">
+	                <li> 
+	                  <div class="checkbox row">
+	                    <label>
+	                      <input type="checkbox"/>
+	                      <div class="locader-checkSm_off check"></div><span>Checkbox 1</span>
+	                    </label>
+	                  </div>
+	                </li>
+	                <li> 
+	                  <div class="checkbox row">
+	                    <label>
+	                      <input type="checkbox"/>
+	                      <div class="locader-checkSm_off check"></div><span>Checkbox 2</span>
+	                    </label>
+	                  </div>
+	                </li>
+	              </ul>
+	            </div>
+	          </li>
+	          <li> 
+	            <div class="checkbox row">
+	              <label class="col-sm-10">
+	                <input type="checkbox"/>
+	                <div class="locader-checkSm_off check"></div><span>Checkbox</span>
+	              </label>
+	              <div class="col-sm-1"><a href="#c2" data-toggle="collapse" class="locader-arrowR">       </a></div>
+	            </div>
+	            <div class="row"></div>
+	            <div id="c2" class="collapse">
+	              <ul class="list-unstyled">
+	                <li> 
+	                  <div class="checkbox row">
+	                    <label>
+	                      <input type="checkbox"/>
+	                      <div class="locader-checkSm_off check"></div><span>Checkbox 1</span>
+	                    </label>
+	                  </div>
+	                </li>
+	                <li> 
+	                  <div class="checkbox row">
+	                    <label>
+	                      <input type="checkbox"/>
+	                      <div class="locader-checkSm_off check"></div><span>Checkbox 2</span>
+	                    </label>
+	                  </div>
+	                </li>
+	              </ul>
+	            </div>
+	          </li>
+	        </ul>
+	      </div>
+	      <div class="col-sm-6"> </div>
+	    </div>
+	  </div>
+	</div>
+
+<script src="scripts/style-guide.js"></script>
+
+</body>
+</html>

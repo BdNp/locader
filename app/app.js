@@ -26,6 +26,52 @@ myApp.controller('MainController', ['$scope', 'cartService', function($scope, ca
 		
 	}
 
+	$scope.selectedLocations = [];
+	$scope.selectionHandler = function (item, list, parentRows, invert, falseWhileOpen) {
+	console.log(invert);
+	console.log(falseWhileOpen);
+	item.Selected = (invert) ? !item.Selected : item.Selected;
+	console.log(item.Selected);
+	item.Selected = (falseWhileOpen) ? false : item.Selected;
+	console.log(item.Selected);
+	// Check/Uncheck all children
+    if (item.hasOwnProperty('SubLocations')) {
+		angular.forEach(item.SubLocations, function(i) {
+			i.Selected = item.Selected;
+            if (i.hasOwnProperty('SubLocations')) {
+				angular.forEach(i.SubLocations, function(c) {
+					c.Selected = i.Selected;
+				});
+			}
+		});
+	}
+
+	// Deselect parent[s] if all children are off
+	angular.forEach(parentRows, function(parentRow) {
+
+		if (parentRow.hasOwnProperty('Name')) {
+            var result = 0;
+			angular.forEach(parentRow.SubLocations, function(i) {
+				if ( i.Selected ) {	result++; }
+			});
+			parentRow.Selected = (result > 0) ? true : false;
+        }
+
+	});
+
+	$scope.selectedLocations = [];
+	angular.forEach($scope.campaignLocations, function(l) {
+		if (l.Selected === true) {  $scope.selectedLocations.push(l.Name);  }
+		angular.forEach(l.SubLocations, function(c) {
+			if (c.Selected === true) {  $scope.selectedLocations.push(c.Name);  }
+			angular.forEach(c.SubLocations, function(r) {
+				if (r.Selected === true) {  $scope.selectedLocations.push(r.Name);  }
+			});
+		});
+	});
+	// console.log($scope.selectedLocations);
+
+	};
 
 	// Pre-made test models, values
 
@@ -34,20 +80,26 @@ myApp.controller('MainController', ['$scope', 'cartService', function($scope, ca
 			ID: '1',
 			Name: 'New York',
 			type: 'location',
-			Selected: true,
+			category: 'state',
 			SubLocations: [
 				{
 					ID: '1_1',
 					Name: 'New York City',
-					Selected: true,
 					type: 'sublocation',
+					category: 'city',
 					SubLocations: [
-						{	ID: '1_1_1', Name: 'Bronx', Selected: true },
-						{	ID: '1_1_2', Name: 'Brooklyn', },
-						{	ID: '1_1_3', Name: 'Manhattan', },
-						{	ID: '1_1_4', Name: 'Queens', },
-						{	ID: '1_1_5', Name: 'Staten Island', },
-				],
+						{	ID: '1_1_1', Name: 'Bronx', category: 'region', },
+						{	ID: '1_1_2', Name: 'Brooklyn', category: 'region', },
+						{	ID: '1_1_3', Name: 'Manhattan', category: 'region', },
+						{	ID: '1_1_4', Name: 'Queens', category: 'region', },
+						{	ID: '1_1_5', Name: 'Staten Island', category: 'region', },
+					],
+				},
+				{
+					ID: '1_2',
+					Name: 'Buffalo',
+					type: 'sublocation',
+					category: 'city',
 				}
 			],
 		}, 
@@ -55,16 +107,18 @@ myApp.controller('MainController', ['$scope', 'cartService', function($scope, ca
 			ID: '2',
 			Name: 'Massachussetts',
 			type: 'location',
+			category: 'state',
 			SubLocations: [
 				{
 					ID: '2_1',
 					Name: 'Boston',
 					type: 'sublocation',
+					category: 'city',
 					SubLocations: [
-						{	ID: '2_1_1', Name: 'Boston Metro' },
-						{	ID: '2_1_2', Name: 'Brookline' },
-						{	ID: '2_1_3', Name: 'Newton' },
-						{	ID: '2_1_4', Name: 'Waltham' }
+						{	ID: '2_1_1', Name: 'Boston Metro', category: 'region', },
+						{	ID: '2_1_2', Name: 'Brookline', category: 'region', },
+						{	ID: '2_1_3', Name: 'Newton', category: 'region', },
+						{	ID: '2_1_4', Name: 'Waltham', category: 'region', }
 					],
 				}
 			],
@@ -293,7 +347,7 @@ myApp.controller('MainController', ['$scope', 'cartService', function($scope, ca
 	$scope.cartLists = ['myCustomers', 'selectedClusters', 'usageRates'];
 
     $scope.selectedItems = [];
-    $scope.selectedLocations = [];
+    // $scope.selectedLocations = [];
     $scope.updateList = function(item, selected) {
     	if(item) item.Selected = selected;
 
@@ -1137,20 +1191,20 @@ console.log('gs controller');
 	}
 
     $scope.selectedItems = [];
-    $scope.selectedLocations = [];
-    $scope.updateList = function(item, selected) {
-    	if(item) item.Selected = selected;
+    // $scope.selectedLocations = [];
+    // $scope.updateList = function(item, selected) {
+    // 	if(item) item.Selected = selected;
 
-        $scope.selectedLocations = [];
-        angular.forEach($scope.selectedItems, function(list) {
-            angular.forEach($scope[list], function(item) {
-                if (item.Selected === true) {
-                    $scope.selectedLocations.push(item);
-                }
-            });
-        });
-        console.log($scope.selectedLocations);
-    }
+    //     $scope.selectedLocations = [];
+    //     angular.forEach($scope.selectedItems, function(list) {
+    //         angular.forEach($scope[list], function(item) {
+    //             if (item.Selected === true) {
+    //                 $scope.selectedLocations.push(item);
+    //             }
+    //         });
+    //     });
+    //     console.log($scope.selectedLocations);
+    // }
 
     $scope.checkAll = function(list, source, noUpdate) {
     	console.log('checkAll');

@@ -60,33 +60,39 @@
     <div class="col-sm-4 col-sm-offset-4">
     <h3 class="">What Location will you be working with during this session?</h3><br class="br2"/>
     
-    <h3 class="orange text-left row">
+    <h3 class="orange text-left row">Locations</h3>
+    
     <accordion class="">
 
-      <accordion-group class="row" ng-repeat="location in campaignLocations" is-open="status.open">
+      <accordion-group class="row" ng-repeat="state in campaignLocations" is-open="status.open">
         <accordion-heading class="text-left">
-          <input type="checkbox" id="#location{{location.ID}}" ng-checked="status.open" ng-model="location.ID"/>
-          <label class="check col-sm-12" for="#location{{location.ID}}">{{location.Name}}
+          <input type="checkbox" id="#state{{state.ID}}" 
+ 
+                 ng-model="state.Selected"
+                 ng-change="selectionHandler(state, campaignLocations)"/>
+          <label class="check col-sm-12" for="#state{{state.ID}}" ng-click="selectionHandler(state, campaignLocations, campaignLocations, true, status.open)">{{state.Name}}
             <span class="pull-right glyphicon" ng-class="{'glyphicon-chevron-right': !status.open, 'glyphicon-chevron-down': status.open}"></span>
           </label>
         </accordion-heading>
           
           <ul class="list-unstyled">
-            <li ng-repeat="sublocation in location.SubLocations">
+            <li ng-repeat="city in state.SubLocations">
               <fieldset class="checkbox row text-left">
                 <label class="col-sm-11">
-                  <input id="{{sublocation.ID}}" ng-model="sublocation.Selected" 
-                  ng-change=""
-                  type="checkbox"/>
-                  <label for="{{sublocation.ID}}" class="check" >{{sublocation.Name}}</label>
+                  <input type="checkbox" id="{{city.ID}}" 
+                        ng-model="city.Selected"
+                        ng-change="selectionHandler(city, campaignLocations, [state])"/>
+                  <label for="{{city.ID}}" class="check" >{{city.Name}}</label>
                 </label>
               </fieldset>
               <br/>
               <ul class="list-unstyled">
-                <li ng-repeat="region in sublocation.SubLocations">
+                <li ng-repeat="region in city.SubLocations">
                   <fieldset class="row checkbox text-left">
                     <label for="" class="col-sm-11">
-                      <input type="checkbox" ng-checked="sublocation.Selected">
+                      <input type="checkbox" id="{{region.ID}}"
+                            ng-model="region.Selected"
+                            ng-change="selectionHandler(region, campaignLocations, [city, state])"/>
                       <label for="{{region.ID}}" class="check">{{region.Name}}</label>
                     </label>
                   </fieldset>
@@ -102,7 +108,7 @@
     </accordion>
     </div>
     <div class="row">
-      <button class="cta next col-sm-2 col-sm-offset-5" ng-click="setStep(3)">Let's Go</button>
+      <button class="cta next col-sm-2 col-sm-offset-5" ng-show="selectedLocations.length > 0" ng-click="setStep(3)">Let's Go</button>
     </div>
   </section>
 

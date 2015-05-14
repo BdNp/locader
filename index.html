@@ -60,13 +60,13 @@
               <li class="col-sm-2" id="locationList">
                 <p>
                 <span class="glyphicon glyphicon-map-marker"></span>
-                <span popover-placement="bottom" class="locationHover">New York</span>
+                <span popover-placement="bottom" class="locationHover">{{selectedLocations[0]}}</span>
                 <!-- <span popover-placement="bottom" popover="{{locationPopover()}}" class="locationHover">New York</span> -->
                 </p>
                 <ul class="list-unstyled">
 
-                  <li ng-repeat="location in campaignLocations">
-                    {{location.Name}}
+                  <li ng-repeat="location in selectedLocations">
+                    {{location}}
                   </li>
                 </ul>
               <li>
