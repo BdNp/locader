@@ -1,9 +1,7 @@
 // Global & Page Headers
 #globalHeader {
   padding: 1em 0 2em;
-  // background: $white;
-  // @include background(linear-gradient(red 90%, black));
-  background: linear-gradient(#ffffff 90%, transparent);
+  background: linear-gradient(rgba(255,255,255, 1) 90%, rgba(255,255,255,0));
   position: fixed;
   top:0;
   width: 100%;

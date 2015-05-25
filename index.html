@@ -24,43 +24,27 @@
       <div class="container">
         
         <div class="row">
-          <p class="pull-right small">     
+        </div>
+
+        <div class="row">
+          <div id="logo" class="col-sm-6"><span class="locader-logo small"></span></div>
+          <p class="col-sm-4 pull-right small text-right">
             <a>support@locader.com</a> | logged in: 
                 <a class="orange">{{username || 'bnapoliello'}}  </a>
             </p>
         </div>
-
         <div class="row">
-          <div id="logo" class="col-sm-3"><span class="locader-logo small"></span></div>
-          <div class="col-sm-9">
+          <div class="col-sm-12">
 
-            <!-- {{globalNav}} -->
             <ul id="globalNav" class="nav nav-pills row" ng-controller="navController">
-                
-              <li><a class="top-menu-item" ng-class="{ 'active': isActive(['/new-customers', '/my-customers'])}" href="#/new-customers">Customers</a>
-                <ul class="nav nav-pills subnav">
-                  <li><a ng-class="{ 'active': isActive(['/my-customers'])}" href="#/my-customers">My Customers</a></li>
-                  <li><a ng-class="{ 'active': isActive(['/new-customers'])}" href="#/new-customers">New Customers</a></li>
-                </ul>
-              </li>
-              <li><a class="top-menu-item" ng-class="{ 'active': isActive(['/my-campaigns', '/new-campaign'])}" href="#/my-campaigns">Campaigns</a>
-                <ul class="nav nav-pills subnav">
-                  <li><a ng-class="{ 'active': isActive(['/my-campaigns'])}" href="#/my-campaigns">My Campaigns</a></li>
-                  <li><a ng-class="{ 'active': isActive(['/new-campaign'])}" href="#/new-campaign">Create Campaign</a></li>
-                </ul>
-              </li>
-              <li><a class="top-menu-item" ng-class="{ 'active': isActive(['/place-media', '/media-marketplace'])}" href="#/place-media">Media Market</a>
-                  <ul class="nav nav-pills subnav">
-                    <li><a ng-class="{ 'active': isActive(['/place-media'])}" href="#/place-media">Place Media</a></li>
-                    <li><a ng-class="{ 'active': isActive(['/media-marketplace'])}" href="#/media-marketplace">Media Marketplace</a></li>
-                  </ul>
-              </li>
 
-
-              <li class="col-sm-2" id="locationList">
+              <li class="col-sm-3" id="locationList">
                 <p>
                 <span class="glyphicon glyphicon-map-marker"></span>
-                <span popover-placement="bottom" class="locationHover">{{selectedLocations[0]}}</span>
+                <span popover-placement="bottom" class="locationHover">{{selectedLocations[0]}}
+                  <span class="glyphicon glyphicon-chevron-down"></span>
+                </span>
+                | <a data-toggle="modal" data-target="#locationModal" class="">Edit</a>
                 <!-- <span popover-placement="bottom" popover="{{locationPopover()}}" class="locationHover">New York</span> -->
                 </p>
                 <ul class="list-unstyled">
@@ -70,9 +54,34 @@
                   </li>
                 </ul>
               <li>
-                <button data-toggle="modal" data-target="#locationModal" class="btn-default btn">Change Locations</button>
               </li>
-                
+                             
+              <!-- <div class="col-sm-10"> -->
+                <li class="col-sm-2"><a class="top-menu-item" ng-class="{ 'active': isActive(['/new-customers', '/my-customers'])}" href="#/new-customers">Customers</a>
+                  <ul class="nav nav-pills subnav">
+                    <li><a ng-class="{ 'active': isActive(['/my-customers'])}" href="#/my-customers">My Customers</a></li>
+                    <li><a ng-class="{ 'active': isActive(['/new-customers'])}" href="#/new-customers">New Customers</a></li>
+                  </ul>
+                </li>
+                <li class="col-sm-2"><a class="top-menu-item" ng-class="{ 'active': isActive(['/my-campaigns', '/new-campaign'])}" href="#/my-campaigns">Campaigns</a>
+                  <ul class="nav nav-pills subnav">
+                    <li><a ng-class="{ 'active': isActive(['/my-campaigns'])}" href="#/my-campaigns">My Campaigns</a></li>
+                    <li><a ng-class="{ 'active': isActive(['/new-campaign'])}" href="#/new-campaign">Create Campaign</a></li>
+                  </ul>
+                </li>
+                <li class="col-sm-2"><a class="top-menu-item" ng-class="{ 'active': isActive(['/place-media', '/media-marketplace'])}" href="#/place-media">Media Market</a>
+                    <ul class="nav nav-pills subnav">
+                      <li><a ng-class="{ 'active': isActive(['/place-media'])}" href="#/place-media">Place Media</a></li>
+                      <li><a ng-class="{ 'active': isActive(['/media-marketplace'])}" href="#/media-marketplace">Media Marketplace</a></li>
+                    </ul>
+                </li>
+                <li class="col-sm-2 pull-right text-right">
+                  <a href="" class="top-menu-item">Settings
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                  </a>
+                </li>
+              <!-- </div>    -->
+
             </ul>
 
 
