@@ -22,8 +22,8 @@
         <div class="row">
           <div class="btn-toolbar"> 
             <div class="btn-group btn-switch" ng-model="customerViewMethod">
-              <button class="col-xs-6" ng-model="customerViewMethod" ng-click="selectedItems = []" btn-radio="'cluster'">By Cluster</button>
-              <button class="col-xs-6" ng-model="customerViewMethod" ng-click="selectedItems = []" btn-radio="'list'">By List</button>
+              <button class="col-xs-6" ng-model="customerViewMethod" ng-click="clearList('selectedItems')" btn-radio="'cluster'">By Cluster</button>
+              <button class="col-xs-6" ng-model="customerViewMethod" ng-click="clearList('selectedItems')" btn-radio="'list'">By List</button>
             </div>
           </div>
         </div>
