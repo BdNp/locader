@@ -16,10 +16,10 @@
   <div class="row">
   <h2 class="col-sm-6">Preferred Media Partners</h2>
     <div class="col-sm-6 last text-right checkbox">
-      <label> Select Media Partners
+      <label> Select All Media Partners
         <input type="checkbox" class="big" id="selectAll"
-                   ng-model="selectedAll"
-                   ng-change="checkAll($scope.selectedVendors)" />
+                   ng-model="allVendors"
+                   ng-change="checkAll('mediaVendors', allVendors)" />
            <label for="selectAll" class="check check-large" ></label>
       </label>
     </div>

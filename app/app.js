@@ -1147,7 +1147,26 @@ myApp.controller('marketplaceController', ['$scope', function($scope) {
 		$scope.percent = 100 * (value / $scope.max);
 	};
 
-	$scope.selectedVendors = $scope.selectedItems;
+	$scope.selectedVendors = [];
+	$scope.updateList = function(item, parent) {
+		if(item) item.Selected = parent;
+
+	    $scope.selectedVendors = [];
+        angular.forEach($scope.mediaVendors, function(item) {
+
+            if (item.Selected === true) {
+                $scope.selectedVendors.push(item);
+            }
+        });
+	}
+
+	$scope.checkAll = function(list, source, noUpdate) {
+	    angular.forEach($scope[list], function (item) {
+	        item.Selected = source;
+	    });
+	    if (noUpdate) return false;
+	    $scope.updateList();
+	}
 
 	$scope.getCamp = function() {
 		console.log('getCamp');

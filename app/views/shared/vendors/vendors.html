@@ -30,12 +30,15 @@
       </a>
     </section>
   </div>
-  <div class="col-sm-1 checkbox">
+  <div class="col-sm-1 checkbox text-right pull-right">
     <input id="vendor{{vendor.VendorID}}" type="checkbox" 
-           ng-model="vendor.selected" 
-           ng-checked="selection.indexOf(vendor) > -1"
-           ng-click="toggleSelection(vendor, 'selectedVendors')"
+           ng-model="selectedVendors"
+           ng-checked="vendor.Selected" 
+           ng-change="updateList(vendor, selectedVendors)"
            value="{{vendor.Name}}"/>
+           <!-- ng-model="vendor.selected" 
+           ng-checked="selection.indexOf(vendor) > -1"
+           ng-click="toggleSelection(vendor, 'selectedVendors')" -->
     <label for="vendor{{vendor.VendorID}}" class="check check-large" ></label>
   </div>
 </li>

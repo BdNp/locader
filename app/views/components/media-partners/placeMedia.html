@@ -27,7 +27,7 @@
     </div>
   </nav><br class="br4"/>
 
-  <div id="mediaTab" class="btn-group tabs">
+<!--   <div id="mediaTab" class="btn-group tabs">
     <div class="btn" ng-model="marketplaceFilter.Services" btn-radio="'Direct Mail'" > 
         <p><strong>Status: Not Started</strong></p>
         <h2>Direct Mail</h2>
@@ -39,6 +39,17 @@
     <div class="btn" ng-model="marketplaceFilter.Services" btn-radio="'Mobile Text'" > 
         <p><strong>Status: Not Started</strong></p>
         <h2>Mobile Text</h2>
+    </div>
+  </div> -->
+{{selectedVendors || null}}
+  <div class="row">
+    <div class="col-sm-12 last text-right checkbox">
+      <label> Select All Media Partners
+        <input type="checkbox" class="big" id="selectAll"
+                   ng-model="allVendors"
+                   ng-change="checkAll('mediaVendors', allVendors)" />
+           <label for="selectAll" class="check check-large" ></label>
+      </label>
     </div>
   </div>
 
