@@ -1258,3 +1258,13 @@ myApp.controller('ModalInstanceCtrl', ['$scope', '$modalInstance', function($sco
 	
 }]);
 	
+myApp.controller('uploadController', ['$scope', function ($scope) {
+	console.log('uploader');
+	$scope.step = 1;
+	$scope.setStep = function(step, bar) {
+		console.log(step);
+		$scope.step = step;
+		$scope.progressBar = bar || $scope.progressBar;
+	}
+
+}]);
