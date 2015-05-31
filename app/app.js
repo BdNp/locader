@@ -867,6 +867,8 @@ myApp.controller('newCampaignController', ['$scope', '$modal', '$route', '$route
 	$scope.cartLists = ['selectedClusters', 'myCustomers', 'campaignChannels'];
 	$scope.selectedItems = cartService.getItems();
 
+	$scope.addCampaign = function() {}
+
 	// $scope.cartLists = ['myCustomers', 'selectedClusters', 'usageRates'];
 
     // $scope.selectedItems = [];
@@ -1139,7 +1141,7 @@ myApp.controller('myCustomersController', ['$scope', '$route', '$modal', functio
 
 }]);
 
-myApp.controller('marketplaceController', ['$scope', function($scope) {
+myApp.controller('marketplaceController', ['$scope', '$routeParams', function($scope, $routeParams) {
 	
 	$scope.marketplaceFilter;
 	$scope.rate = 7;
@@ -1147,6 +1149,10 @@ myApp.controller('marketplaceController', ['$scope', function($scope) {
 	$scope.isReadonly = false;
 	$scope.vendorState = '';
 	$selectedCampaign = '';
+
+	if($routeParams.newCampaign == true) {
+		$('#successModal').modal();
+	}
 
 	$scope.hoveringOver = function(value) {
 		$scope.overStar = value;
