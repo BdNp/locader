@@ -918,9 +918,15 @@ myApp.controller('newCampaignController', ['$scope', '$modal', '$route', '$route
 		$scope.step = 1;
 		$scope.progressBar = 1;
 	}
-	$scope.setStep = function(step, bar) {
+
+	$scope.setStep = function(step, bar, purgeFields) {
 		$scope.step = step;
 		$scope.progressBar = bar || $scope.progressBar;
+
+		purgeFields = purgeFields || [];
+		for(field in purgeFields) {
+			$scope[purgeFields[field]] = '';
+		}
 	}
 
 	$scope.steps = [ 'Select Audience', 'Create Campaign', 'Place Media'];
