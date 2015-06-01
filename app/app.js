@@ -975,7 +975,7 @@ myApp.controller('newCustomersController', ['$scope', '$routeParams', '$route', 
 	$scope.customerLimit = 0;
 	$scope.distance = 0;
 	$scope.total = 0;
-	$scope.wizardResults = $routeParams.wizardResults
+	$scope.wizardResults = $routeParams.wizard;
 	
 	$scope.cartLists = ['myCustomers', 'selectedClusters', 'usageRates'];
 
