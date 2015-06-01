@@ -63,7 +63,7 @@
 
 
   <button class="col-sm-12 cta" ng-show="selectedItems.length > 0 && step < 4" ng-click="setStep(4,2)">Continue</button>
-  <a href="#/place-media?newCampaign=1" ng-click="addCampaign()" class="col-sm-12 button cta text-center" ng-show="step > 3">Finish</a>
+  <a href="#/place-media?newCampaign=1" ng-click="addCampaign()" class="col-sm-12 button cta text-center" ng-show="campaignName != '' && campaignChannels.length > 0">Finish</a>
   </ul>
 
   <!-- Customer Cart Items -->
