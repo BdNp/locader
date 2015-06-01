@@ -78,6 +78,7 @@ a:focus {
   .panel-default>.panel-heading {
     background-color: transparent;
     color: $gray1;
+    overflow: hidden;
   }
   
 }

@@ -350,6 +350,7 @@ a:focus {
 #cart .panel-default > .panel-heading {
   background-color: transparent;
   color: #707173;
+  overflow: hidden;
 }
 
 /* line 86, ../sass/_bootstrap.scss */
@@ -361,19 +362,19 @@ a:focus {
   font-weight: bold;
 }
 
-/* line 94, ../sass/_bootstrap.scss */
+/* line 100, ../sass/_bootstrap.scss */
 .panel-default > .panel-heading {
   overflow: auto;
   padding: 0.5em 0;
   background-color: transparent;
 }
 
-/* line 101, ../sass/_bootstrap.scss */
+/* line 107, ../sass/_bootstrap.scss */
 .panel-default > .panel-heading input[type=checkbox] + label.check {
   height: 18px;
 }
 
-/* line 105, ../sass/_bootstrap.scss */
+/* line 111, ../sass/_bootstrap.scss */
 .panel-group .panel + .panel {
   margin-top: 0;
   border-width: 1px 0 1px 0;
