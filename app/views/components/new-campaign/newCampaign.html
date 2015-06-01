@@ -85,13 +85,13 @@
       <p class="col-sm-12 bold italic">We recommend <span class="orange">Direct Mail, Email, and Mobile Text</span></p>
 
       <div class="row">
-        <div class="col-sm-4" ng-repeat="channel in availableChannels">
+        <div class="col-sm-4" ng-repeat="channel in availableChannels track by $index">
           <div class="checkbox">
             <label for="channel{{ channel.id }}" >
               <input id="channel{{ channel.id }}" type="checkbox" 
                      ng-model="campaignChannels" 
                      ng-checked="channel.Selected" 
-                     ng-change="updateList(channel, '', campaignChannels)"/>
+                     ng-change="toggleSelection(channel, 'campaignChannels')"/>
               <label for="channel{{ channel.id }}" class="check check-large" ></label>{{ channel.name }}
             </label>
           </div><br/>

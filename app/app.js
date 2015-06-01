@@ -864,18 +864,31 @@ myApp.controller('newCampaignController', ['$scope', '$modal', '$route', '$route
 	$scope.campaignName = '';
 	$scope.campaignChannels = [];
 
-	$scope.cartLists = ['selectedClusters', 'myCustomers', 'campaignChannels'];
+	$scope.cartLists = ['selectedClusters', 'myCustomers', 'availableChannels'];
 	$scope.selectedItems = cartService.getItems();
 
 	$scope.addCampaign = function() {}
 
 	// $scope.cartLists = ['myCustomers', 'selectedClusters', 'usageRates'];
 
-    // $scope.selectedItems = [];
+    $scope.toggleSelection = function toggleSelection(item, o) {
+	    var idx = $scope[o].indexOf(item);
+
+	    // is currently selected
+	    if (idx > -1) {
+	      $scope[o].splice(idx, 1);
+	    }
+
+	    // is newly selected
+	    else {
+	      $scope[o].push(item);
+	    }
+	};
+
     $scope.updateList = function(item, selected) {
     	if(item) item.Selected = selected;
-        
-        $scope.selectedItems = [];
+
+    	$scope.selectedItems = [];
         angular.forEach($scope.cartLists, function(list) {
             angular.forEach($scope[list], function(item) {
                 if (item.Selected === true) {	$scope.selectedItems.push(item)		}
