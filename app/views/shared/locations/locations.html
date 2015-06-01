@@ -4,15 +4,14 @@
   <h3 class="">What Location will you be working with?</h3><br class="br2"/>
   
   <h3 class="orange text-left row">Locations</h3>
-  <accordion class="">
-
-          <accordion-group class="row" ng-repeat="state in campaignLocations" is-open="status.open">
+  <accordion class="accordion" close-others="false">
+      <accordion-group class="row" ng-repeat="state in campaignLocations" is-open="status.open">
         <accordion-heading class="text-left">
           <input type="checkbox" id="#state{{state.ID}}" 
                  ng-checked="status.open" 
                  ng-model="state.Selected"
                  ng-change="selectionHandler(state, campaignLocations)"/>
-          <label class="check col-sm-12" for="#state{{state.ID}}" ng-click="selectionHandler(state, campaignLocations, campaignLocations, true, status.open)">{{state.Name}}
+          <label class="check col-sm-12" for="#state{{state.ID}}" ng-click="selectionHandler(state, campaignLocations, campaignLocations, status.open, status.open)">{{state.Name}}
             <span class="pull-right glyphicon" ng-class="{'glyphicon-chevron-right': !status.open, 'glyphicon-chevron-down': status.open}"></span>
           </label>
         </accordion-heading>
