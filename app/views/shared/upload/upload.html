@@ -38,7 +38,7 @@
 <!-- Match List Headers-->
   <section id="matchHeaders" class="form-group step row" ng-show="step == 3">
     <!-- <fieldset class="col-sm-6 col-sm-offset-3 text-center"> -->
-    <fieldset class="text-center">
+    <form name="headers" class="text-center" ng-controller="FormController">
     <!-- <fieldset ng-class="{col-sm-6 col-sm-offset-3: firstTime}" class="text-center"> -->
         <div class="form-group row">
           <div class="col-sm-3 text-right"><b>Standard Headers</b></div>
@@ -137,7 +137,7 @@
         <a href="#/my-customers" class="button cta col-sm-4 col-sm-offset-4" ng-click="finishGettingStarted(newList)" ng-if="firstTime">Finish Upload</a>
         <button class="cta col-sm-4 col-sm-offset-4" data-dismiss="modal" ng-if="!firstTime">Finish Upload </button>
       </div>
-    </fieldset>
+    </form>
   </section>
 
  <!-- </form> -->
