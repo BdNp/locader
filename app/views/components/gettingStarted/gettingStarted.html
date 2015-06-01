@@ -14,28 +14,24 @@
 <!-- <form id="gettingStarted" class="row" name="gettingStarted">  -->
 
   <!-- Log In -->
-  <section ng-show="step == 1" class="col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">
-    <!-- <form id="login" class=""> -->
+  <form name="loginForm" ng-show="step == 1" class="col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4" ng-controller="FormController">
       <div class="form-group">
-        <input type="email" placeholder="Email Address" required="required" class="form-control" ng-model="username"/>
+        <input type="email" placeholder="Email Address" required class="form-control" ng-model="username" ng-change="validateThis(username)"/>
       </div>
       <div class="form-group">
-        <input type="password" placeholder="Password" required="required" class="form-control"/>
+        <input type="password" placeholder="Password" required ng-model="password" class="form-control"/>
       </div>
       <div class="form-group">
         <div class="row">
-          <!-- <div> -->
             <label class="col-sm-6 checkbox text-left">
               <input  id="rememberMe" type="checkbox"/>
               <label for="rememberMe" class="check text-left">Remember Me</label>
             </label>
-          <!-- </div> -->
           <div class="col-sm-6">
             <p class="text-right"> <a>Forgot Password?</a></p>
           </div>
         </div>
       </div>
-      <!-- <button class="btnwide cta" ng-click="setStep(2)">Log In</button> -->
       <br class="br3" />
       <div class="row">
         <div class=" col-sm-8 col-sm-offset-2">
@@ -47,8 +43,7 @@
         <!-- <a class="cta">New to Locader? Sign up here</a> -->
       </div>
         <br class="br3" />
-    <!-- </form> -->
-  </section>
+  </form>
 
   <!-- Back Link -->
   <section ng-show="step >= 1113" class="col-sm-4 col-sm-offset-4 text-left form-group">

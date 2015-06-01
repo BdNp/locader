@@ -1216,19 +1216,14 @@ myApp.controller('gettingStartedController', ['$scope', function($scope) {
 
 	$scope.steps = [ 'Select Files', 'Name List', 'Match Headers' ];
 	$scope.gettingStarted = true;
-	$scope.username = 'Test';
-console.log('gs controller');
+	$scope.username = 'Test@email.com';
+	$scope.password = 'Test@email.com';
 	// Step functions
 	$scope.step = 1;
 	$scope.progressBar = 1;
 	$scope.setStep = function(step, bar) {
 		$scope.step = step;
 		$scope.progressBar = bar || $scope.progressBar;
-	}
-
-	$scope.logIn = function(address) {
-		$scope.user = address;
-		$scope.setStep(2);
 	}
 
     $scope.selectedItems = [];
@@ -1255,6 +1250,13 @@ console.log('gs controller');
         if (noUpdate) return false;
         $scope.updateList();
     }
+
+    $scope.validateThis = function (field) {
+    	console.log(field);
+    }
+
+}]);
+
 
 // Validation controller for handling multi-step journeys with forms
 myApp.controller('FormController', ['$scope', function($scope){
