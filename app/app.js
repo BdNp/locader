@@ -1256,6 +1256,56 @@ console.log('gs controller');
         $scope.updateList();
     }
 
+// Validation controller for handling multi-step journeys with forms
+myApp.controller('FormController', ['$scope', function($scope){
+	$scope.setStep = function(step, bar) {
+		$scope.$parent.step = step;
+		$scope.progressBar = bar || $scope.progressBar;
+	}
+
+	$scope.validateToStep = function(form, step, bar, doFunction) {
+		console.log($scope[form]);
+		if($scope[form].$valid) {
+			$scope.setStep(step, bar);
+			// if(doFunction != '') return doFunction;
+			return true;
+		}
+		return false;
+	}
+
+	$scope.logIn = function(username) {
+		if ($scope.validateToStep('loginForm', 2)) {
+			$scope.user = username;
+		}
+	}
+
+	//Match Headers Function & Values
+
+	$scope.matchHeaders = function(closeModal) {
+		// console.log($scope.validateToStep('headers', 1, 1))
+		// if ($scope.validateToStep('headers', 1, 1) === true)
+			// if (closeModal) $('#uploadModal').modal('hide');
+	}
+
+	$scope.matchHeaderFields = [
+		{ name: 'firstName', label: 'First Name', index: 1 },
+		{ name: 'lastName', label: 'Last Name', index: 2 },
+		{ name: 'address1', label: 'Address', index: 3 },
+		{ name: 'address2', label: 'Address 2', index: 4 },
+		{ name: 'state', label: 'State', index: 5 },
+		{ name: 'zip', label: 'Zip', index: 6 },
+		{ name: 'email', label: 'Email', index: 7 },
+		{ name: 'phone', label: 'Phone', index: 8 },
+		{ name: 'paymentAmount', label: 'Payment Amount', index: 9 },
+		{ name: 'locationID', label: 'Location ID', index: 10, tooltip: 'yo' },
+		// { name: 'firstName', label: 'First Name', index: 11, underOr: true, options: $scope.$parent.selectedLocations },
+	];
+
+	$scope.matchHeaderOptions = [
+		{ code: 'op1', name: 'Option 1' },
+		{ code: 'op2', name: 'Option 2' },
+	];
+
 }]);
 
 myApp.controller('ModalInstanceCtrl', ['$scope', '$modalInstance', function($scope, $modalInstance) {
