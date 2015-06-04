@@ -898,21 +898,6 @@ myApp.controller('newCampaignController', ['$scope', '$modal', '$route', '$route
         $scope.updateList();
     }
     
-    $scope.clearList = function(list) {
-        if (list == 'all') {
-            angular.forEach($scope.cartLists, function(list) {
-                angular.forEach($scope[list], function(item) {
-                    item.Selected = false;
-                });
-            });
-        } else {
-            angular.forEach($scope[list], function (item) {
-                item.Selected = false;
-            });
-        }
-        $scope.updateList();
-    }
-
 	$scope.getTotal = function(list) {
 		var total = 0;
 		list = list || 'selectedItems';
@@ -995,21 +980,6 @@ myApp.controller('newCustomersController', ['$scope', '$routeParams', '$route', 
     //     angular.forEach($scope[list], function (item) {		item.Selected = source		});
     //     $scope.updateList();
     // }
-    
-    // $scope.clearList = function(list) {
-    //     if (list == 'all') {
-    //         angular.forEach($scope.cartLists, function(list) {
-    //             angular.forEach($scope[list], function(item) {
-    //                 item.Selected = false;
-    //             });
-    //         });
-    //     } else {
-    //         angular.forEach($scope[list], function (item) {
-    //             item.Selected = false;
-    //         });
-    //     }
-    //     $scope.updateList();
-    // }
 
     $scope.toggleSelection = function(item, list, value) {
     	item.Selected = !item.Selected;
@@ -1073,6 +1043,8 @@ myApp.controller('newCustomersController', ['$scope', '$routeParams', '$route', 
 
 myApp.controller('myCustomersController', ['$scope', '$route', '$modal', function($scope, $route, $modal) {
 
+	$scope.$parent.clearList('all');
+
 	$scope.page = $route.current.title;
 	$scope.customerFilter = 'Current Customers';
 	$scope.customerViewMethod = 'cluster';
@@ -1098,21 +1070,6 @@ myApp.controller('myCustomersController', ['$scope', '$route', '$modal', functio
 
     $scope.checkAll = function(list, source) {
         angular.forEach($scope[list], function (item) {		item.Selected = source		});
-        $scope.updateList();
-    }
-    
-    $scope.clearList = function(list) {
-        if (list == 'all') {
-            angular.forEach($scope.cartLists, function(list) {
-                angular.forEach($scope[list], function(item) {
-                    item.Selected = false;
-                });
-            });
-        } else {
-            angular.forEach($scope[list], function (item) {
-                item.Selected = false;
-            });
-        }
         $scope.updateList();
     }
 

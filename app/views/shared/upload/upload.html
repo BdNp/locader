@@ -55,7 +55,7 @@
 
         
       <div class="form-group row">
-        <button class="btn" ng-click="validateToStep('headers')">Validate</button>
+        <!-- <button class="btn" ng-click="validateToStep('headers')">Validate</button> -->
         <a href="#/my-customers" class="button cta col-sm-4 col-sm-offset-4" ng-click="finishGettingStarted(newList)" ng-if="firstTime">Finish Upload</a>
         <button class="cta col-sm-4 col-sm-offset-4" ng-click="validateToStep('headers', 1, 1, matchHeaders(true))" ng-if="!firstTime" ng-disabled="form.$invalid">Finish Upload </button>
       </div>
