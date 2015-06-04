@@ -27,10 +27,9 @@ myApp.controller('MainController', ['$scope', 'cartService', function($scope, ca
 	}
 
 	$scope.selectedLocations = [];
-	$scope.selectionHandler = function (item, list, parentRows, invert, falseWhileOpen) {
-	invert = invert || false;
-	item.Selected = (invert) ? item.Selected : !item.Selected;
-	item.Selected = (falseWhileOpen) ? false : item.Selected;
+	$scope.selectionHandler = function (item, list, parentRows, overwriteAccordion) {
+	item.Selected = (overwriteAccordion != undefined ) ? overwriteAccordion : item.Selected;
+
 	// Check/Uncheck all children
     if (item.hasOwnProperty('SubLocations')) {
 		angular.forEach(item.SubLocations, function(i) {
