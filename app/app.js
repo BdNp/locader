@@ -1043,7 +1043,12 @@ myApp.controller('newCustomersController', ['$scope', '$routeParams', '$route', 
 myApp.controller('myCustomersController', ['$scope', '$route', '$modal', function($scope, $route, $modal) {
 
 	$scope.$parent.clearList('all');
-
+	$scope.clearList = function(list) {
+		$scope.$parent.clearList(list);
+		$scope.selectedItems = [];
+		$scope.campaignName = '';
+		$scope.campaignChannels = [];
+	}
 	$scope.page = $route.current.title;
 	$scope.customerFilter = 'Current Customers';
 	$scope.customerViewMethod = 'cluster';
