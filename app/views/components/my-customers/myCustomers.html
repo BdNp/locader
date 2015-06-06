@@ -63,9 +63,9 @@
           <div class="checkbox">
             <label for="channel{{ channel.id }}" >
               <input id="channel{{ channel.id }}" type="checkbox" 
-                     ng-model="selectedItems" 
+                     ng-model="campaignChannels" 
                      ng-checked="channel.Selected" 
-                     ng-change="updateList(channel, selectedItems)"/>
+                     ng-change="toggleSelection(channel, 'campaignChannels')"/>
               <label for="channel{{ channel.id }}" class="check check-large" ></label>{{ channel.name }}
             </label>
           </div><br/>

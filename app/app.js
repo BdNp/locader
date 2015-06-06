@@ -405,6 +405,20 @@ myApp.controller('MainController', ['$scope', 'cartService', function($scope, ca
 		return output;
 	}
 
+    $scope.toggleSelection = function toggleSelection(item, o) {
+	    var idx = $scope[o].indexOf(item);
+
+	    // is currently selected
+	    if (idx > -1) {
+	      $scope[o].splice(idx, 1);
+	    }
+
+	    // is newly selected
+	    else {
+	      $scope[o].push(item);
+	    }
+	};
+    
 }]);
 
 
@@ -857,6 +871,7 @@ myApp.controller('navController', ['$scope', '$location', function($scope, $loca
 myApp.controller('newCampaignController', ['$scope', '$modal', '$route', '$routeParams', 'cartService', function($scope, $modal, $route, $routeParams, cartService) {
 
 	$scope.page = $route.current.title;
+	$scope.$parent.clearList('all');
 	$scope.campaignName = '';
 	$scope.campaignChannels = [];
 
@@ -953,6 +968,7 @@ myApp.controller('newCampaignController', ['$scope', '$modal', '$route', '$route
 
 myApp.controller('newCustomersController', ['$scope', '$routeParams', '$route', function($scope, $routeParams, $route) {
 	
+	$scope.$parent.clearList('all');
 	$scope.page = $route.current.title;
 	$scope.selectedItems = [];
 	$scope.selectedUsage = [];
@@ -1058,6 +1074,8 @@ myApp.controller('myCustomersController', ['$scope', '$route', '$modal', functio
 	$scope.campaignChannels = [];
 
 	$scope.cartLists = ['myCustomers', 'selectedClusters', 'availableChannels'];
+	$scope.steps = [ 'Select Audience', 'Create Campaign', 'Place Media' ];
+
 
     $scope.selectedItems = [];
     $scope.updateList = function(item, selected) {
@@ -1070,7 +1088,6 @@ myApp.controller('myCustomersController', ['$scope', '$route', '$modal', functio
             });
         });
     }
-
 
     $scope.checkAll = function(list, source) {
         angular.forEach($scope[list], function (item) {		item.Selected = source		});
@@ -1086,14 +1103,32 @@ myApp.controller('myCustomersController', ['$scope', '$route', '$modal', functio
 	    return total;
 	}
 
-	$scope.steps = [ 'Select Audience', 'Create Campaign', 'Place Media' ];
+    $scope.toggleSelection = function toggleSelection(item, o) {
+	    var idx = $scope[o].indexOf(item);
+
+	    // is currently selected
+	    if (idx > -1) {
+	      $scope[o].splice(idx, 1);
+	    }
+
+	    // is newly selected
+	    else {
+	      $scope[o].push(item);
+	    }
+	};
+
 
 	// Step functions
 	$scope.step = 1;
 	$scope.progressBar = 1;
-	$scope.setStep = function(step, bar) {
+	$scope.setStep = function(step, bar, purgeFields) {
 		$scope.step = step;
 		$scope.progressBar = bar || $scope.progressBar;
+
+		purgeFields = purgeFields || [];
+		for(field in purgeFields) {
+			$scope[purgeFields[field]] = '';
+		}
 	}
 
 	$scope.open = function ( size, url) {

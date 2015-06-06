@@ -3,9 +3,9 @@
   <ul class="row steps list-unstyled">
     <li class="col-sm-4" ng-class="{1 : 'in-progress', 2 : 'in-progress', 3: 'in-progress'}[progressBar]">
       <span ng-switch="page">
-        <a ng-click="setStep(3,1, ['campaignName'])" ng-switch-when="Create Campaign">{{steps[0]}}</a>
+        <a ng-click="setStep(3,1, ['campaignName', 'campaignChannels'])" ng-switch-when="Create Campaign">{{steps[0]}}</a>
         <a ng-click="setStep(1,1)" ng-switch-when="Find New Customers">{{steps[0]}}</a>
-        <a ng-click="setStep(1,1)" ng-switch-when="My Customers">{{steps[0]}}</a>
+        <a ng-click="setStep(1,1, ['campaignName', 'campaignChannels'])" ng-switch-when="My Customers">{{steps[0]}}</a>
         <span ng-switch-default>{{steps[0]}}</span>
       </span>
     </li>
@@ -184,10 +184,10 @@
       </div>
     </li>
 
-    <li ng-if="selectedItems.length > 0">
+    <li ng-if="campaignChannels.length > 0">
       <div class="row">
         <p class="col-sm-12"><strong>Channels</strong><br/>
-          <span ng-repeat="channel in selectedItems | filter: {type: 'channel'}">{{channel.name}}<br/></span>
+          <span ng-repeat="channel in campaignChannels | filter: {type: 'channel'}">{{channel.name}}<br/></span>
         </p>
       </div>
     </li>
