@@ -55,6 +55,7 @@ myApp.controller('MainController', ['$scope', 'cartService', function($scope, ca
 
 	});
 
+	// List selected locations
 	$scope.selectedLocations = [];
 	angular.forEach($scope.campaignLocations, function(l) {
 		if (l.Selected === true) {  $scope.selectedLocations.push(l.Name);  }
@@ -65,7 +66,6 @@ myApp.controller('MainController', ['$scope', 'cartService', function($scope, ca
 			});
 		});
 	});
-	// console.log($scope.selectedLocations);
 
 	};
 
@@ -418,6 +418,18 @@ myApp.controller('MainController', ['$scope', 'cartService', function($scope, ca
 	      $scope[o].push(item);
 	    }
 	};
+
+	$scope.setStep = function(step, bar, purgeFields, args) {
+		$scope.step = step;
+		$scope.progressBar = bar || $scope.progressBar;
+
+		purgeFields = purgeFields || [];
+		for(field in purgeFields) {
+			$scope[purgeFields[field]] = '';
+		}
+	}
+
+	
     
 }]);
 
@@ -1017,6 +1029,7 @@ myApp.controller('newCustomersController', ['$scope', '$routeParams', '$route', 
 	    	 // $scope.selectedUsage[1] = addObject(item);
     	}
     	console.log($scope.selectedUsage);
+    	console.log($scope.selectedItems);
     }
    
 	$scope.getTotal = function(list) {
@@ -1079,6 +1092,7 @@ myApp.controller('myCustomersController', ['$scope', '$route', '$modal', functio
 		$scope.campaignChannels = [];
 	}
 	$scope.page = $route.current.title;
+	console.log($scope.page);
 	$scope.customerFilter = 'Current Customers';
 	$scope.customerViewMethod = 'cluster';
 	$scope.selectedItems = [];
