@@ -4,8 +4,8 @@
     <li class="col-sm-4" ng-class="{1 : 'in-progress', 2 : 'in-progress', 3: 'in-progress'}[progressBar]">
       <span ng-switch="page">
         <a ng-click="setStep(3,1, ['campaignName', 'campaignChannels'])" ng-switch-when="Create Campaign">{{steps[0]}}</a>
-        <a ng-click="setStep(1,1)" ng-switch-when="Find New Customers">{{steps[0]}}</a>
-        <a ng-click="setStep(1,1, ['campaignName', 'campaignChannels'])" ng-switch-when="My Customers">{{steps[0]}}</a>
+        <a ng-click="setStep(2,1, ['selectedUsage'])" ng-switch-when="Find New Customers" ng-disabled="step == 1">{{steps[0]}}</a>
+        <a ng-click="setStep(2,1, ['campaignName', 'campaignChannels'])" ng-switch-when="My Customers">{{steps[0]}}</a>
         <span ng-switch-default>{{steps[0]}}</span>
       </span>
     </li>

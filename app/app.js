@@ -977,7 +977,7 @@ myApp.controller('newCustomersController', ['$scope', '$routeParams', '$route', 
 	$scope.total = 0;
 	$scope.wizardResults = $routeParams.wizard;
 	
-	$scope.cartLists = ['myCustomers', 'selectedClusters', 'usageRates'];
+	$scope.cartLists = ['myCustomers', 'selectedClusters'];
 
     $scope.selectedItems = [];
     $scope.updateList = function(item, selected) {
@@ -1048,9 +1048,22 @@ myApp.controller('newCustomersController', ['$scope', '$routeParams', '$route', 
 	if 	($scope.wizardResults) $scope.step = 2;
 	else $scope.step = 1;
 	$scope.progressBar = 1;
-	$scope.setStep = function(step, bar) {
+	$scope.setStep = function(step, bar, purgeFields, newCustomerMethod) {
 		$scope.step = step;
 		$scope.progressBar = bar || $scope.progressBar;
+
+		purgeFields = purgeFields || [];
+		for(field in purgeFields) {
+			$scope[purgeFields[field]] = '';
+		}
+
+		$scope.newCustomerMethod = newCustomerMethod || $scope.newCustomerMethod;
+		if (step < 3) {
+			angular.forEach($scope.$parent.usageRates, function(u) {
+				u.Selected = false;
+			});
+		console.log($scope.$parent.usageRates);
+		}
 	}
 
 

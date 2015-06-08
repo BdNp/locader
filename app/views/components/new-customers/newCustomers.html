@@ -8,11 +8,11 @@
       </div>
       <div class="col-sm-6 text-center">
         <h2>Need smart recommendations?</h2><br class="br1"/>
-        <button class="cta" ng-click="setStep(2.5, 1)">View our Recommendations</button>
+        <button class="cta" ng-click="setStep(2, 1, [], 'recommendations')">View our Recommendations</button>
       </div>
     </section>
 
-    <section class="form-group row" ng-show="step == 2">
+    <section class="form-group row" ng-show="step == 2 && newCustomerMethod == 'wizard'">
       <h2>Cluster Wizard Results</h2>
       <h3>We identified these clusters based on the demographics <Br/>you provided.</h3>
       <br class="br3" />
@@ -22,7 +22,7 @@
         <div show-cluster></div>
       </ul>
     </section>
-    <section class="form-group row" ng-show="step == 2.5 || step == 2">
+    <section class="form-group row" ng-show="step == 2 && newCustomerMethod == 'recommendations'">
       <h3 class="col-sm-8">
         <span ng-show="step == 2">We also recommend the following clusters for you</span>
         <span ng-show="step == 2.5">Recommended Clusters</span>
