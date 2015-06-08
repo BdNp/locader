@@ -1132,7 +1132,7 @@ fieldset.form-group.row, fieldset .form-group.row {
 }
 
 /* line 73, ../sass/_components.scss */
-.clusters li {
+.clusters li.ng-scope {
   margin: 0;
   padding: 1.25em 0;
   border-width: 0px 0 1px 0;
@@ -1140,37 +1140,41 @@ fieldset.form-group.row, fieldset .form-group.row {
   border-color: #E6EDF0;
 }
 /* line 79, ../sass/_components.scss */
-.clusters li:first-child {
+.clusters li.ng-scope:first-child {
   margin-top: 1em;
   border-top-width: 1px;
 }
 /* line 84, ../sass/_components.scss */
-.clusters li .cluster-copy {
+.clusters li.ng-scope .cluster-copy {
   padding-top: 1em;
 }
+/* line 88, ../sass/_components.scss */
+.clusters li.ng-scope ul.cluster-links li {
+  margin: .5em .5em 0 0;
+}
 
-/* line 89, ../sass/_components.scss */
+/* line 93, ../sass/_components.scss */
 #mediaTab + .clusters li:first-child {
   border-top: 0;
 }
 
-/* line 94, ../sass/_components.scss */
+/* line 98, ../sass/_components.scss */
 .btn-group {
   width: 100%;
 }
 
-/* line 99, ../sass/_components.scss */
+/* line 103, ../sass/_components.scss */
 .well.upload {
   background-color: #E6EDF0;
   border: 2px dotted #A4A7A9;
   min-height: 20em;
 }
 
-/* line 107, ../sass/_components.scss */
+/* line 111, ../sass/_components.scss */
 #mediaTab {
   height: 5em;
 }
-/* line 109, ../sass/_components.scss */
+/* line 113, ../sass/_components.scss */
 #mediaTab > div {
   height: 100%;
   width: 33.33333%;
@@ -1182,38 +1186,38 @@ fieldset.form-group.row, fieldset .form-group.row {
   color: #707173;
   text-align: left;
 }
-/* line 121, ../sass/_components.scss */
+/* line 125, ../sass/_components.scss */
 #mediaTab > div:last-child {
   border-right: none;
 }
-/* line 125, ../sass/_components.scss */
+/* line 129, ../sass/_components.scss */
 #mediaTab > div.active {
   background-color: #E6EDF0;
   border: 0;
   border-bottom: 1px solid #C2C5C8;
   border-right: 1px solid #C2C5C8;
 }
-/* line 130, ../sass/_components.scss */
+/* line 134, ../sass/_components.scss */
 #mediaTab > div.active p {
   color: #F04923;
 }
-/* line 131, ../sass/_components.scss */
+/* line 135, ../sass/_components.scss */
 #mediaTab > div.active:hover, #mediaTab > div.active:focus {
   background-color: #E6EDF0;
   border: 0;
   border-bottom: 1px solid #C2C5C8;
   border-right: 1px solid #C2C5C8;
 }
-/* line 136, ../sass/_components.scss */
+/* line 140, ../sass/_components.scss */
 #mediaTab > div.active:hover p, #mediaTab > div.active:focus p {
   color: #F04923;
 }
-/* line 141, ../sass/_components.scss */
+/* line 145, ../sass/_components.scss */
 #mediaTab li.disabled > a {
   color: #C2C5C8;
 }
 
-/* line 152, ../sass/_components.scss */
+/* line 156, ../sass/_components.scss */
 #colors div {
   display: inline-block;
   font-size: 1em;

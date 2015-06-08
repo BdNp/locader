@@ -18,17 +18,27 @@
       </span>
       # of customers: <span class="orange">{{cluster.CountCurrentCustomers}}</span>
     </p>
-    <div class="row">
-      <a class="col-sm-4" ng-click="cluster.showLearnMore = !cluster.showLearnMore"> 
+    <ul class="cluster-links list-inline list-unstyled">
+      <li>
+      <a ng-click="cluster.showLearnMore = !cluster.showLearnMore"> 
         <!-- learn {{cluster.showLearnMore || 'empty'}} </a> -->
         <span class="glyphicon" ng-class="cluster.showLearnMore ? 'glyphicon-chevron-up' : 'glyphicon-chevron-down' "></span>
         <strong class="text-link">{{cluster.showLearnMore === true ? 'Close' : 'Learn More'}}</strong>
       </a>
-      <a class="col-sm-6">
+      </li>
+      <li>
+      <a ng-if="page == 'My Customers' ">
+        <span class="glyphicon glyphicon-download"></span> 
+        <strong class="text-link">Download PDF</strong>
+      </a>
+      </li>
+      <li>
+      <a>
         <span class="glyphicon glyphicon-download"></span> 
         <strong class="text-link">Download Customer Kit</strong>
       </a>
-    </div>
+      </li>
+    </ul>
   </section>
   <section class="col-sm-1 checkbox last">
 
