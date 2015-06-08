@@ -21,15 +21,15 @@
       <h2>2. Would you like to use a customer list?</h2>
       <div class="btn-group row">
         <div class="col-sm-4">
-          <button class="btn-block" ng-click="setStep(1,1); setStep(2.5, 1); selectedItems = []" ng-model="customerList" btn-radio="'Yes'" value="purchased" ui-sref='form.clusters'>Yes</button>
+          <button class="btn-block" ng-click="setStep(3, 1, ['selectedItems']); customerViewMethod = 'lists'; $parent.clearList('all')" ng-model="customerList" btn-radio="'Yes'" value="purchased" ui-sref='form.clusters'>Yes</button>
         </div>
         <div class="col-sm-4">
-          <button class="btn-block" ng-click="setStep(1,1); setStep(3, 1); selectedItems = []" ng-model="customerList" btn-radio="'No'" value="" ui-sref='form.clusters'>No</button>
+          <button class="btn-block" ng-click="setStep(3, 1, ['selectedItems']); customerViewMethod = 'clusters'; $parent.clearList('all')" ng-model="customerList" btn-radio="'No'" value="" ui-sref='form.clusters'>No</button>
         </div>
       </div>
     </section>
 
-    <section class="form-group row" ng-show="step == 2.5">
+    <section class="form-group row" ng-show="step == 3 && customerViewMethod == 'lists'">
       <h2>3. Which Lists would you like to target?</h2>
       <div class="row" style="height: 54px">
         <h4 class="col-xs-6">
@@ -51,7 +51,7 @@
 
     </section>
 
-    <section class="form-group row" ng-show="step == 3 || step == 2.5">
+    <section class="form-group row" ng-show="step == 3 && customerViewMethod == 'clusters'">
       <h2>3. Which Clusters would you like to target?</h2>
       <div class="col-sm-6">
         <!-- <a data-toggle="modal" data-target="#uploadModal">Upload List</a> -->
