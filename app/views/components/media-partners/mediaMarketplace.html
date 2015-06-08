@@ -5,10 +5,10 @@
     </div>
     <div class="col-sm-6 last">
       <div class="col-sm-6">
-        <button data-toggle="modal" data-target="#requestModal" class="btn-block">Invite New Vendor</button>
+        <button data-toggle="modal" data-target="#requestModal" ng-click="vendorState = 'invite'" class="btn-block">Invite New Vendor</button>
       </div>
       <div class="col-sm-6">
-        <button data-toggle="modal" data-target="#requestModal" class="btn-block">Request More Info</button>
+        <button data-toggle="modal" data-target="#requestModal" ng-click="vendorState = 'getInfo'" class="btn-block">Request More Info</button>
       </div>
     </div>
   </nav><br class="br4"/>
@@ -33,10 +33,10 @@
 
 <!-- Request Messages -->
 <div id="requestModal" tabindex="-1" class="modal fade">
-  <div class="modal-dialog modal-sm">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
-      <div class="modal-body">
-        <div request-message></div>
+      <div class="modal-body row">
+        <div request-message ng-attr-get-message="{{getMessage}}" class="col-sm-4 col-sm-offset-4"></div>
       </div>
     </div>
   </div>
